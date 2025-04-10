@@ -3,7 +3,6 @@ import json
 import os
 from graphviz import Digraph
 from PIL import Image
-import base64
 
 st.set_page_config(page_title="Fluxo BPMN COGEX", layout="wide")
 
@@ -15,9 +14,10 @@ with col_logo:
 with col_texto:
     st.markdown("### **Corregedoria do Foro Extrajudicial**")
     st.markdown("##### Sistema de Modelagem de Processos - COGEX")
+
 st.markdown("---")
 
-# === Detectar fluxos JSON ===
+# === Dropdown de seleção de fluxo ===
 arquivos_fluxo = [f for f in os.listdir() if f.startswith("fluxo") and f.endswith(".json")]
 fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
 
@@ -25,12 +25,13 @@ fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
 with open(fluxo_selecionado, encoding='utf-8') as f:
     dados = json.load(f)
 
-st.subheader(f"📌 {dados['titulo']}")
-st.markdown(f"#### {dados['subtitulo']}")
+# === Título e Setor ===
+st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
+st.markdown(f"**🏛️ Setor:** {dados.get('setor', 'Setor não informado')}")
 
 col1, col2 = st.columns([3, 1])
 
-# === Renderizador BPMN ===
+# === Renderizador BPMN por código ===
 with col1:
     fluxo = Digraph('Fluxograma', format='png')
     fluxo.attr(rankdir='TB', size='8,10', nodesep='0.5')
@@ -51,43 +52,30 @@ with col1:
     for origem, destino in dados["conexoes"]:
         fluxo.edge(origem, destino)
 
-    # === Exibição do fluxo ===
     st.graphviz_chart(fluxo)
 
-    # === Exportação PNG ===
-    nome_img = fluxo_selecionado.replace(".json", "_fluxo")
-    caminho_img = fluxo.render(nome_img, cleanup=False)
-    with open(caminho_img, "rb") as f_img:
-        btn = st.download_button(
-            label="📥 Baixar Fluxograma PNG",
-            data=f_img,
-            file_name=os.path.basename(caminho_img),
-            mime="image/png"
-        )
-
-    # === Exportação PDF via workaround base64 ===
+    # Exportação PNG (opcional)
     try:
-        import pdfkit
-        html = f"<img src='data:image/png;base64,{base64.b64encode(open(caminho_img, 'rb').read()).decode()}' />"
-        pdfkit.from_string(html, nome_img + ".pdf")
-        with open(nome_img + ".pdf", "rb") as fpdf:
+        nome_img = fluxo_selecionado.replace(".json", "_fluxo")
+        caminho_img = fluxo.render(nome_img, cleanup=False)
+        with open(caminho_img, "rb") as f_img:
             st.download_button(
-                label="📄 Baixar como PDF",
-                data=fpdf,
-                file_name=nome_img + ".pdf",
-                mime="application/pdf"
+                label="📥 Baixar Fluxograma PNG",
+                data=f_img,
+                file_name=os.path.basename(caminho_img),
+                mime="image/png"
             )
     except Exception as e:
-        st.warning("PDF não gerado (pdfkit não instalado ou falhou).")
+        st.warning(f"Erro ao gerar PNG: {e}")
 
 # === Legenda + Base Legal ===
 with col2:
     st.subheader("📘 Legenda")
     for tipo, estilo in estilo_map.items():
         cor = estilo['fillcolor']
-        simbolo = "⬤" if estilo["shape"] == "circle" else "⬛"
+        simbolo = "⬤" if "circle" in estilo["shape"] else "⬛"
         st.markdown(f"{simbolo} **{tipo.capitalize()}** – cor `{cor}`")
 
     st.markdown("---")
     st.subheader("⚖️ Base Legal")
-    st.markdown(dados["base_legal"])
+    st.markdown(dados.get("base_legal", "Não informada"))
