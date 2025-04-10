@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 30-2021 – Fluxo A: Alteração de Prenome e Gênero de Pessoas Transgênero",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 30, de 2021 + Constituição Federal + Lei nº 6.015/1973 + Provimento CNJ nº 73/2018. Regulamenta o procedimento extrajudicial para alteração de prenome e gênero de pessoas transgênero diretamente nos cartórios, sem necessidade de decisão judicial ou comprovação de cirurgia. Adequar os procedimentos registrais para acolher pedidos administrativos de alteração de prenome e gênero com base na autodeclaração da parte interessada.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 30/2021"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Requerimento Formal com Autodeclaração\n- Nome atual e pretendido\n- Gênero\n- Documentação pessoal (RG, CPF, certidão, comprovante)"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Análise Documental\n- Verificação da regularidade formal\n- Inexistência de exigência médica ou judicial"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Lavratura da Nova Certidão\n- Averbação do registro original\n- Garantia de sigilo"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Comunicação a Órgãos Públicos\n- TSE, Receita Federal e outros\n- Via sistema eletrônico"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Monitoramento e Capacitação\n- Coleta de dados\n- Formação em diversidade e direitos humanos"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Garantia da identidade de gênero assegurada"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
