@@ -181,7 +181,7 @@ try:
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
 
-# === Exportação visual A4 com layout ===
+# === Exportação visual para A4 retrato/paisagem ===
 
 import streamlit.components.v1 as components
 
