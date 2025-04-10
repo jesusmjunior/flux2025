@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 15-2023 – Fluxo A: Registro Tardio de Nascimento",
+  "setor": "Núcleo de Registro Civil",
+  "base_legal": "Provimento nº 15, de 28 de abril de 2023 + Provimento nº 28/2018 – CGJ-MA + Lei nº 6.015/1973. Altera o art. 3º do Provimento nº 28/2018, flexibilizando os critérios para o registro tardio de nascimento, especialmente em contextos de vulnerabilidade social.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 15-2023 e solicitação de registro civil"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Recebimento do Pedido de Registro Tardio\n- Declaração de duas testemunhas\n- Outros documentos comprobatórios"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise de Regularidade e Justificativa\n- Verificação da plausibilidade e base legal\n- Saída: aceitação ou exigência complementar"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Realização do Registro e Entrega da Certidão\n- Lançamento no Livro A + emissão do CPF\n- Isenção de custas em caso de hipossuficiência"},
+    
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Comunicação à Rede de Apoio\n- Notificação à Defensoria, CRAS, Pastoral, etc.\n- Inclusão em políticas públicas de cidadania"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Fiscalização pelo Juiz Corregedor Permanente\n- Relatórios de registros tardios\n- Boas práticas e pareceres de regularidade"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Inclusão social por meio do acesso ao registro civil"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
