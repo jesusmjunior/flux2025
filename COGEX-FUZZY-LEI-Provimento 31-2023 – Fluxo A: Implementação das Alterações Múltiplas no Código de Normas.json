@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 31-2023 – Fluxo A: Implementação das Alterações Múltiplas no Código de Normas",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 31, de 15 de agosto de 2023 + Código de Normas da CGJ-MA – Arts. 493, 494, 495, 498, 502 e adição do art. 502-A. Altera e acrescenta dispositivos ao Código de Normas da CGJ-MA, promovendo ampliação e padronização normativa das serventias.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 31-2023 no DJE"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Consolidação das Alterações\n- Análise técnica de cada artigo\n- Quadro comparativo + guia interpretativo"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Orientação Institucional Unificada\n- Cartilha + vídeo explicativo via ESMAM\n- Canal: Portal e mídias digitais"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Adequação Operacional nos Cartórios\n- Ajustes em sistemas e procedimentos\n- Termos de adequação arquivados"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Inspeção dos Novos Itens\n- Checklist focado no art. 502-A e correlatos\n- Relatório técnico com recomendações"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Código de Normas implementado com eficácia em todas as serventias"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
