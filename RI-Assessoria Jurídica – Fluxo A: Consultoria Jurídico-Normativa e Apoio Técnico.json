@@ -1,0 +1,31 @@
+{
+  "titulo": "RI-Assessoria Jurídica – Fluxo A – Consultoria Jurídico-Normativa e Apoio Técnico",
+  "setor": "Assessoria Jurídica",
+  "base_legal": "Art. 19 – Título II, Capítulo II, Seção IV do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Distribuição de demanda jurídica"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Análise Técnica\n- Exame de processos\n- Estudo de normas\n- Triagem da matéria"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Produção Jurídica\n- Pareceres\n- Estudos e minutas\n- Decisões e provimentos"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Validação e Assinatura\n- Submissão à autoridade\n- Revisão pelos juízes auxiliares"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Apoio às Inspeções\n- Preparar peças\n- Acompanhar diligências"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Gestão Jurídica Interna\n- Arquivos de consulta\n- Controle de prazos\n- Atendimento a pleitos"},
+    
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Controle de Processos\n- Monitoramento do tempo médio\n- Relatórios internos"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Resposta jurídica formalizada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
