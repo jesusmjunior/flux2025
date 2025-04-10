@@ -111,98 +111,53 @@ body {{
     st.download_button("📥 Baixar HTML estilo A4", data=html_export, file_name="fluxo_visual.html", mime="text/html")
 
 
-# === Exportação visual com imagem incorporada (HTML completo) ===
+# === Exportação para DOCX com imagem real ===
 from graphviz import Digraph
-import base64
+from docx import Document
+from docx.shared import Inches
+from io import BytesIO
+from PIL import Image
 
-if st.button("📤 Exportar layout completo com imagem"):
-    fluxo_export = Digraph("Export")
-    fluxo_export.attr(rankdir="TB", size="8,10", nodesep="0.5")
+if st.button("📤 Exportar layout para Word (.docx)"):
+    fluxo_doc = Digraph("Fluxo")
+    fluxo_doc.attr(rankdir="TB", size="8,10", nodesep="0.5")
 
     for etapa in dados["etapas"]:
         estilo = estilo_map.get(etapa["tipo"], {})
-        fluxo_export.node(etapa["id"], etapa["texto"], **estilo)
+        fluxo_doc.node(etapa["id"], etapa["texto"], **estilo)
 
     for origem, destino in dados["conexoes"]:
-        fluxo_export.edge(origem, destino)
+        fluxo_doc.edge(origem, destino)
 
-    img_bytes = fluxo_export.pipe(format="png")
-    img_b64 = base64.b64encode(img_bytes).decode()
+    try:
+        img_bytes = fluxo_doc.pipe(format="png")
+        img_io = BytesIO(img_bytes)
+        img = Image.open(img_io)
 
-    html_template = '''
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <title>Fluxograma COGEX</title>
-      <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 40px;
-        }
-        .header {
-            text-align: center;
-        }
-        .header img {
-            height: 80px;
-        }
-        .fluxo-img {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-        .section {
-            margin-top: 20px;
-        }
-        footer {
-            text-align: center;
-            font-size: 11px;
-            color: #888;
-            margin-top: 30px;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="header">
-        <img src="https://raw.githubusercontent.com/streamlit/streamlit-example/master/static/favicon.png">
-        <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
-        <h2>{titulo}</h2>
-        <p><strong>Setor:</strong> {setor}</p>
-      </div>
+        doc = Document()
+        doc.add_heading("CORREGEDORIA DO FORO EXTRAJUDICIAL DO ESTADO DO MARANHÃO", 0)
+        doc.add_heading(dados.get("titulo", ""), level=1)
+        doc.add_paragraph(f"Setor: {setor_escolhido}")
+        img_io.seek(0)
+        doc.add_picture(img_io, width=Inches(5.5))
 
-      <img src="data:image/png;base64,{imagem}" class="fluxo-img">
+        doc.add_heading("📘 Legenda", level=2)
+        doc.add_paragraph("⬤ Início – lightgreen")
+        doc.add_paragraph("⬛ Tarefa – lightblue")
+        doc.add_paragraph("⬛ Verificação – khaki")
+        doc.add_paragraph("⬛ Publicação – lightpink")
+        doc.add_paragraph("⬛ Fiscalização – lightgrey")
+        doc.add_paragraph("⬤ Fim – red")
 
-      <div class="section">
-        <h3>📘 Legenda</h3>
-        ⬤ Início – lightgreen<br>
-        ⬛ Tarefa – lightblue<br>
-        ⬛ Verificação – khaki<br>
-        ⬛ Publicação – lightpink<br>
-        ⬛ Fiscalização – lightgrey<br>
-        ⬤ Fim – red
-      </div>
+        doc.add_heading("⚖️ Base Legal", level=2)
+        doc.add_paragraph(dados.get("base_legal", "Não definida"))
 
-      <div class="section">
-        <h3>⚖️ Base Legal</h3>
-        {base_legal}
-      </div>
+        doc.add_paragraph("Sistema de Modelagem de Processos – COGEX/TJMA")
 
-      <footer>
-        Sistema de Modelagem de Processos – COGEX/TJMA
-      </footer>
-    </body>
-    </html>
-    '''.replace("{imagem}", img_b64)       .replace("{titulo}", dados.get("titulo", ""))       .replace("{setor}", setor_escolhido)       .replace("{base_legal}", dados.get("base_legal", ""))
+        output_docx = "fluxograma_COGEX.docx"
+        doc.save(output_docx)
 
-    with open("fluxograma_layout_completo.html", "w", encoding="utf-8") as f:
-        f.write(html_template)
-
-    with open("fluxograma_layout_completo.html", "rb") as f:
-        st.download_button("📥 Baixar HTML com imagem completa", f, file_name="fluxograma_layout_completo.html", mime="text/html")
+        with open(output_docx, "rb") as f:
+            st.download_button("📥 Baixar Word (.docx)", f, file_name=output_docx, mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+    except Exception as e:
+        st.error(f"Erro na exportação: {e}")
