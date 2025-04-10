@@ -1,0 +1,28 @@
+{
+  "titulo": "RI-Coordenadoria de Serventias Extrajudiciais-Fluxo A – Gestão Cadastral, Comunicação e Tabelas",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Art. 32, incisos I a XIV – Título II, Capítulo VI, Seção II do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Ativação de rotinas da Coordenadoria"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Cadastro das Serventias\n- Atualização contínua\n- Banco de dados informatizado"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Comunicação e Notificações\n- Sistema Hermes\n- Informes oficiais e avisos"},
+    
+    {"id": "t3", "tipo": "publicacao", "texto": "3. Divulgação Institucional\n- Informações ao Portal\n- Tabela de plantão semestral"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Atendimento e Certidões\n- Respostas a pedidos\n- Intermediação e consultas"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Apoio a Projetos Especiais\n- Casamentos comunitários\n- Postos interligados"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Atividades normativas executadas"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
