@@ -54,7 +54,27 @@ st.markdown("""
         box-shadow: 0 0 10px #0ff;
         font-family: monospace;
     }
-</style>
+    .speech-bubble {
+        position: absolute;
+        right: 80px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        font-size: 12px;
+        animation: talk 6s ease-in-out infinite;
+        width: 140px;
+        text-align: center;
+    }
+
+    @keyframes talk {
+        0%, 100% { opacity: 0; }
+        20%, 80% { opacity: 1; }
+    }
 """, unsafe_allow_html=True)
 
 # === Cabeçalho institucional ===
@@ -71,7 +91,8 @@ st.divider()
 # === Robô Flutuante Lateral ===
 st.markdown("""
 <div class="floating-robot">
-    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712107.png" width="60">
+    <div class="speech-bubble">Olá! Precisa de ajuda?</div>
+    <img src=\"https://cdn-icons-png.flaticon.com/512/4712/4712035.png\" width="60">
     <div class="placa-jj">JJ I.A. COGEX</div>
 </div>
 """, unsafe_allow_html=True)
@@ -150,30 +171,30 @@ try:
     st.markdown("---")
     if st.button("📤 Exportar para HTML (modo A4 institucional com layout do app)"):
         tipo_cor = {key: key for key in estilo_map}
-        html_export_visual = f"""
+        html_export_visual = """
         <!DOCTYPE html>
         <html lang=\"pt-br\">
         <head>
           <meta charset=\"UTF-8\">
           <title>{dados['titulo']}</title>
           <style>
-            body {{ font-family: Arial, sans-serif; max-width: 800px; margin: auto; background: #fff; padding: 40px; color: #111; }}
-            header {{ text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 20px; }}
-            header img {{ width: 120px; }}
-            h1 {{ font-size: 20px; margin: 10px 0 0 0; }}
-            h2 {{ font-size: 18px; color: #222; }}
-            .setor {{ background: #f3f3f3; padding: 10px; margin-bottom: 20px; border-radius: 5px; }}
-            .colunas {{ display: flex; gap: 30px; }}
-            .col1 {{ flex: 2; }}
-            .col2 {{ flex: 1; font-size: 14px; }}
-            .box {{ padding: 10px; border-radius: 5px; margin-bottom: 15px; }}
-            .inicio {{ background: lightgreen; }}
-            .tarefa {{ background: lightblue; }}
-            .verificacao {{ background: khaki; }}
-            .publicacao {{ background: lightpink; }}
-            .fiscalizacao {{ background: lightgrey; }}
-            .fim {{ background: red; color: white; text-align: center; }}
-            footer {{ text-align: center; font-size: 11px; color: #888; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }}
+            body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; background: #fff; padding: 40px; color: #111; }
+            header { text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+            header img { width: 120px; }
+            h1 { font-size: 20px; margin: 10px 0 0 0; }
+            h2 { font-size: 18px; color: #222; }
+            .setor { background: #f3f3f3; padding: 10px; margin-bottom: 20px; border-radius: 5px; }
+            .colunas { display: flex; gap: 30px; }
+            .col1 { flex: 2; }
+            .col2 { flex: 1; font-size: 14px; }
+            .box { padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+            .inicio { background: lightgreen; }
+            .tarefa { background: lightblue; }
+            .verificacao { background: khaki; }
+            .publicacao { background: lightpink; }
+            .fiscalizacao { background: lightgrey; }
+            .fim { background: red; color: white; text-align: center; }
+            footer { text-align: center; font-size: 11px; color: #888; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }
           </style>
         </head>
         <body>
