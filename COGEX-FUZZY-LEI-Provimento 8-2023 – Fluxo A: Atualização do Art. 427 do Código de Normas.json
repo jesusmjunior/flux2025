@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 8-2023 – Fluxo A: Atualização do Art. 427 do Código de Normas",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 8, de 20 de março de 2023 + Código de Normas da CGJ-MA – Artigo 427. Atualiza o art. 427 do Código de Normas da CGJ-MA, promovendo ajustes técnicos nos procedimentos dos registros públicos.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 8/2023 com nova redação do art. 427"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Interpretação da Mudança e Elaboração de Orientação\n- Estudo técnico jurídico\n- Nota técnica padronizada"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Divulgação aos Oficiais de Registro Civil\n- Circular normativa\n- Divulgação em canais oficiais (DJE, Portal COGEX, WhatsApp)"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Adequação Interna dos Sistemas e Formulários\n- Atualização de sistemas, templates e rotinas\n- Adequação funcional completa"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Monitoramento da Correta Aplicação do Artigo\n- Fiscalização pontual com checklist específico\n- Relatório de conformidade"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Aplicação uniforme do art. 427 e atualização estatística institucional"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
