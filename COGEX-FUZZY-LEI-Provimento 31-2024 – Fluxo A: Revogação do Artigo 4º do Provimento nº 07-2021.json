@@ -1,0 +1,22 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 31-2024 – Fluxo A: Revogação do Artigo 4º do Provimento nº 07-2021",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 31, de 28 de junho de 2024 + Provimento nº 07-2021 da CGJ-MA. Revoga o artigo 4º do Provimento nº 07-2021, promovendo revisão normativa sobre serventias.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 31-2024 no DJE"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Análise de Impacto Regulatório\n- Levantamento das serventias afetadas\n- Diagnóstico com risco jurídico avaliado"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Comunicação Oficial às Serventias\n- Ofício-circular de cessação\n- Envio via Portal, DJE e e-mails"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Monitoramento de Conformidade\n- Inspeções e análises documentais\n- Ajustes em caso de descumprimento"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Uniformização cartorária e registro do impacto regulatório"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "end"]
+  ]
+}
