@@ -44,9 +44,9 @@ with col_texto:
 
 st.divider()
 
-# === Campo de busca por nome de arquivo JSON ===
-st.markdown("🔍 **Pesquise pelo nome do fluxograma**")
-busca = st.text_input("Digite parte do nome do arquivo JSON:", "").lower()
+# === Pesquisa e seleção de fluxogramas ===
+st.markdown("### 📂 Selecione ou pesquise um fluxograma")
+busca = st.text_input("🔍 Digite parte do nome do arquivo JSON:", "").lower()
 
 # Filtragem dos arquivos JSON com base na busca
 arquivos_json = sorted([f for f in os.listdir() if f.endswith(".json")])
