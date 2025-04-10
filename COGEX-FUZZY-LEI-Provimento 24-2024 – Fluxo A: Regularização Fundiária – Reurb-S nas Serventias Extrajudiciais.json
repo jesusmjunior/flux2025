@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 24-2024 – Fluxo A: Regularização Fundiária – Reurb-S nas Serventias Extrajudiciais",
+  "setor": "Núcleo de Registro Civil",
+  "base_legal": "Provimento nº 24/2024 + Lei nº 13.465/2017 + LC nº 271/2024",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 24/2024 e demanda social/habitacional"},
+
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Análise Técnica do Provimento\n- Alcance territorial e legal\n- Aspectos sociojurídicos da Reurb-S"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Parecer e Roteiro Padronizado\n- Assessoria Jurídica + Juízes Corregedores\n- Envio orientador às serventias"},
+
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Capacitação Cartorária\n- Cartilha técnica\n- Webinário orientativo com Q&A"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Monitoramento da Adesão\n- Indicadores de aplicação\n- Relatórios mensais de impacto"},
+    
+    {"id": "t5", "tipo": "verificacao", "texto": "5. Fiscalização Técnica\n- Vistorias com check-list REURB\n- Conformidade registral avaliada"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Regularização fundiária validada com retroalimentação normativa"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
