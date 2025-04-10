@@ -1,0 +1,37 @@
+{
+  "titulo": "CAC-Coordenadoria de Análise de Contas-Fluxo B – Autorização de Despesa e Controle de Envio",
+  "setor": "Coordenadoria de Análise de Contas",
+  "base_legal": "Fluxo prático validado internamente – CAC / Art. 34, incisos VII, IX e X do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Recebimento do pedido via malote digital"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Abertura de requisição\n- Registro inicial no sistema"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Emissão de Parecer Técnico\n- Análise da solicitação"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Criação do Processo\n- Com número e identificação completa"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Encaminhamento ao Corregedor\n- Para decisão ou despacho"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Retorno ao setor com a peça assinada"},
+    
+    {"id": "t6", "tipo": "publicacao", "texto": "6. Envio da decisão aos delegatários\n- Via malote digital"},
+    
+    {"id": "t7", "tipo": "tarefa", "texto": "7. Juntada do comprovante de envio ao processo"},
+    
+    {"id": "t8", "tipo": "verificacao", "texto": "8. Verificação do cumprimento da decisão"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Arquivamento do processo"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "t7"],
+    ["t7", "t8"],
+    ["t8", "end"]
+  ]
+}
