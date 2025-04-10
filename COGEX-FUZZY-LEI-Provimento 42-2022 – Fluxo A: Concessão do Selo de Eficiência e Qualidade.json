@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 42-2022 – Fluxo A: Concessão do Selo de Eficiência e Qualidade",
+  "setor": "Coordenadoria de Gestão da Qualidade",
+  "base_legal": "Provimento nº 42, de 20 de setembro de 2022 + Constituição Federal + Lei nº 8.935/1994 + Código de Normas da CGJ-MA. Institui o Selo de Eficiência e Qualidade como forma de reconhecimento e valorização das serventias extrajudiciais que se destacam em excelência administrativa e atendimento ao público.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do provimento e abertura do edital anual"
+    },
+    {
+      "id": "t1",
+      "tipo": "publicacao",
+      "texto": "1. Divulgação do Edital\n- Critérios técnicos\n- Metas de desempenho\n- Inscrição das serventias"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Análise das Candidaturas\n- Produtividade\n- Atendimento\n- Qualidade documental"
+    },
+    {
+      "id": "t3",
+      "tipo": "fiscalizacao",
+      "texto": "3. Inspeção Técnica\n- Visita in loco\n- Validação de dados"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Divulgação e Premiação\n- Entrega simbólica do selo\n- Cerimônia oficial"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Monitoramento Semestral\n- Painel de desempenho\n- Suspensão do selo se necessário"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Boas práticas institucionalizadas nas serventias"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
