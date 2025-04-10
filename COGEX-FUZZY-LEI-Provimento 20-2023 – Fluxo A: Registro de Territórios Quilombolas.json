@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 20-2023 – Fluxo A: Registro de Territórios Quilombolas",
+  "setor": "Núcleo de Registro de Imóveis",
+  "base_legal": "Provimento nº 20, de 25 de maio de 2023 + Constituição Federal + Decreto nº 4.887/2003 + diretrizes do INCRA e SEPPIR. Regula o registro dos territórios quilombolas reconhecidos pelo Estado, com abertura de matrícula e averbação de domínio coletivo das comunidades tradicionais.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 20-2023 + solicitação formal da comunidade ou órgão competente"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Recebimento do Título de Reconhecimento\n- Protocolo do título expedido por INCRA/ITERMA\n- Anexos: planta, memorial, ata da comunidade, autodefinição"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise de Conformidade Documental e Territorial\n- Autenticidade, legalidade, delimitação geográfica\n- Saída: deferimento ou exigência"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Abertura da Matrícula em Nome da Comunidade\n- Averbação do domínio coletivo\n- Registro com eficácia erga omnes"},
+    
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Comunicação Institucional e Controle Social\n- Notificação a SEIR, SEIRJ, DPE, MPMA\n- Integração ao cadastro COGEX"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Inspeção Especializada das Serventias\n- Auditoria nas regiões reconhecidas como quilombolas\n- Diagnóstico e boas práticas"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Regularização formal dos territórios quilombolas no MA"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
