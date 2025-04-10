@@ -33,7 +33,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# === Cabeçalho institucional ===
 col_logo, col_texto = st.columns([1, 4])
 with col_logo:
     if os.path.exists("cogex.png"):
@@ -90,24 +89,18 @@ try:
         st.subheader("⚖️ Base Legal")
         st.markdown(dados.get("base_legal", "Não informada."))
 
-    # === Botão de exportação com imagem do fluxo ===
     st.markdown("---")
     if st.button("📤 Exportar com desenho real do fluxo (HTML)"):
-        fluxo_real = Digraph("fluxograma", format="png")
-        fluxo_real.attr(rankdir="TB", size="8,10", nodesep="0.5")
 
         for etapa in dados["etapas"]:
             estilo = estilo_map.get(etapa["tipo"], {})
-            fluxo_real.node(etapa["id"], etapa["texto"], **estilo)
+            fluxo.node(etapa["id"], etapa["texto"], **estilo)
 
         for origem, destino in dados["conexoes"]:
-            fluxo_real.edge(origem, destino)
+            fluxo.edge(origem, destino)
 
-        nome_base = "fluxo_desenhado"
-        caminho_img = fluxo_real.render(f"/tmp/{nome_base}", cleanup=True)
-
-        with open(caminho_img, "rb") as img_file:
-            img_b64 = base64.b64encode(img_file.read()).decode()
+        img_bytes = fluxo.pipe(format="png")
+        img_b64 = base64.b64encode(img_bytes).decode()
 
         html_img = f"""
         <!DOCTYPE html>
@@ -162,7 +155,7 @@ try:
             <h2>{dados.get("titulo", "")}</h2>
           </header>
           <p><strong>Setor:</strong> {setor_escolhido}</p>
-          <img src="data:image/png;base64,{{img_b64}}" alt="Fluxograma desenhado" class="fluxo-img">
+          <img src="data:image/png;base64,{img_b64}" alt="Fluxograma desenhado" class="fluxo-img">
           <div class="legenda">
             <h3>📘 Legenda</h3>
             ⬤ Início – `lightgreen`<br>
@@ -177,7 +170,7 @@ try:
           </footer>
         </body>
         </html>
-        """.replace("{{img_b64}}", img_b64)
+        """
 
         nome_html = "fluxograma_com_imagem.html"
         with open(nome_html, "w", encoding="utf-8") as f:
