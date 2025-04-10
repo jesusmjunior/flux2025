@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 17-2022 – Fluxo A: Implantação das Unidades Interligadas de Registro Civil",
+  "setor": "Núcleo de Registro Civil",
+  "base_legal": "Provimento nº 17, de 28 de abril de 2022 + Constituição Federal + Lei nº 9.534/1997 + Lei nº 6.015/1973 + Provimento CNJ nº 13/2010. Regulamenta a instalação de Unidades Interligadas de Registro Civil em maternidades e hospitais públicos, com o objetivo de combater o sub-registro civil no Estado.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento e identificação das maternidades prioritárias"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Parcerias Institucionais\n- Convênio com hospitais\n- Assinatura de termos com prefeituras"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Instalação Física das Unidades\n- Espaço equipado na maternidade\n- Ligação ao SIRC"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Capacitação das Equipes\n- Treinamento com foco em atendimento humanizado\n- Material técnico da COGEX"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Lavratura do Registro de Nascimento\n- Coleta dos dados na maternidade\n- Certidão emitida no local"
+    },
+    {
+      "id": "t5",
+      "tipo": "verificacao",
+      "texto": "5. Monitoramento das Taxas de Sub-registro\n- Controle estatístico por unidade\n- Avaliação de cobertura"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Redução efetiva do sub-registro e garantia da identidade civil"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
