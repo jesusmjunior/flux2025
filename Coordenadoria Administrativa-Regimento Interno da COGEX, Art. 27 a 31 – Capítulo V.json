@@ -1,0 +1,24 @@
+{
+  "titulo": "Processo Endógeno – Execução Administrativa Interna",
+  "setor": "Coordenadoria Administrativa",
+  "base_legal": "Regimento Interno da COGEX, Art. 27 a 31 – Capítulo VI",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Planejamento Interno\n- Definir metas administrativas\n- Alinhar orientações normativas"},
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Apoio Operacional\n- Apoiar serventias\n- Encaminhar materiais/logística"},
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Acompanhamento e Fiscalização\n- Monitorar serviços\n- Verificar cumprimento de normas"},
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Gestão Documental\n- Organizar arquivo\n- Classificar e expedir documentos"},
+    {"id": "t5", "tipo": "publicacao", "texto": "5. Protocolo e Expedição\n- Registrar e distribuir\n- Encaminhar correios e e-mails"},
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Controle de Frota\n- Agendar veículos\n- Monitorar abastecimento e manutenção"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
