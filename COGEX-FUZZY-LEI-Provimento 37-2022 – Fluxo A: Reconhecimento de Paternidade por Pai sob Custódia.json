@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 37-2022 – Fluxo A: Reconhecimento de Paternidade por Pai sob Custódia",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 37, de 13 de setembro de 2022 + Constituição Federal + Código Civil + Lei nº 6.015/1973 + Código de Normas da CGJ-MA – Art. 314. Altera o art. 314 do Código de Normas da CGJ-MA, viabilizando o reconhecimento de paternidade por pais que estejam privados de liberdade, respeitando os direitos da criança e da família.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Pedido de reconhecimento por genitor preso"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Solicitação Formal\n- Origem: unidade prisional, Defensoria ou familiar\n- Documentos: identificação, certidão, autorização"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Verificação da Vontade do Preso\n- Declaração manuscrita ou gravação autorizada\n- Checagem da autenticidade"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Lavratura e Averbação\n- Reconhecimento no termo de nascimento\n- Atualização da certidão"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Comunicação Institucional\n- Informar a Vara da Infância, Conselho Tutelar, Defensoria\n- Encaminhamento do ato"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalização e Acompanhamento\n- Avaliação periódica da legalidade\n- Relatórios de conformidade"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Reconhecimento de paternidade concluído"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
