@@ -1,68 +1,88 @@
-{
-  "titulo": "Processo Endógeno – Atualização Normativa (Provimento nº 33/2024)",
-  "setor": "Coordenadoria de Serventias Extrajudiciais",
-  "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
-  "etapas": [
-    {
-      "id": "start",
-      "tipo": "inicio",
-      "texto": "Início"
-    },
-    {
-      "id": "t1",
-      "tipo": "tarefa",
-      "texto": "1. Estudo Interno\n- Identificar lacunas\n- Analisar relatórios\n- Levantar normas"
-    },
-    {
-      "id": "t2",
-      "tipo": "tarefa",
-      "texto": "2. Redigir Minuta\n- Criar Seção XIV\n- Referenciar Prov. 16/22"
-    },
-    {
-      "id": "t3",
-      "tipo": "verificacao",
-      "texto": "3. Análise de Conformidade\n- CNJ\n- STJ/STF"
-    },
-    {
-      "id": "t4",
-      "tipo": "publicacao",
-      "texto": "4. Publicação Oficial\n- DJE\n- Notificação às serventias"
-    },
-    {
-      "id": "t5",
-      "tipo": "fiscalizacao",
-      "texto": "5. Fiscalização\n- Verificar cumprimento\n- Aplicar medidas"
-    },
-    {
-      "id": "end",
-      "tipo": "fim",
-      "texto": "Encerramento"
-    }
-  ],
-  "conexoes": [
-    [
-      "start",
-      "t1"
-    ],
-    [
-      "t1",
-      "t2"
-    ],
-    [
-      "t2",
-      "t3"
-    ],
-    [
-      "t3",
-      "t4"
-    ],
-    [
-      "t4",
-      "t5"
-    ],
-    [
-      "t5",
-      "end"
-    ]
-  ]
-}
+import streamlit as st
+import json
+import os
+from graphviz import Digraph
+from PIL import Image
+
+st.set_page_config(page_title="COGEX – Modelagem de Processos", layout="wide")
+
+# === SETORES OFICIAIS DA COGEX ===
+setores_cogex = [
+    "Gabinete dos Juízes Corregedores",
+    "Núcleo de Registro Civil",
+    "Núcleo de Atos",
+    "Diretoria do COGEX",
+    "Chefe de Gabinete dos Juízes Corregedores",
+    "Assessoria Jurídica",
+    "Coordenadoria de Serventias Extrajudiciais",
+    "Coordenadoria de Reclamações e Processos Disciplinares",
+    "Coordenadoria Administrativa",
+    "Coordenadoria de Inspeções",
+    "Coordenadoria de Análise de Contas"
+]
+
+# === Cabeçalho com logotipo aumentado ===
+col_logo, col_texto = st.columns([1, 9])
+with col_logo:
+    if os.path.exists("cogex.png"):
+        st.image(Image.open("cogex.png"), width=180)
+with col_texto:
+    st.markdown("### **COGEX - CORREGEDORIA DO FORO EXTRAJUDICIAL DO ESTADO DO MARANHÃO**")
+    st.markdown("##### Sistema de Modelagem de Processos")
+
+st.markdown("---")
+
+# === Dropdown para seleção de JSON ===
+arquivos_fluxo = [f for f in os.listdir() if f.startswith("fluxo") and f.endswith(".json")]
+fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
+
+# === Carregar JSON ===
+try:
+    with open(fluxo_selecionado, encoding='utf-8') as f:
+        dados = json.load(f)
+
+    st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
+
+    setor_atual = dados.get("setor", "Não informado")
+    setor_valido = setor_atual if setor_atual in setores_cogex else "❗ Setor fora do padrão oficial"
+    st.markdown(f"**🏛️ Setor:** `{setor_valido}`")
+
+    col1, col2 = st.columns([3, 1])
+
+    # === Renderizar Fluxograma ===
+    with col1:
+        fluxo = Digraph('Fluxograma', format='png')
+        fluxo.attr(rankdir='TB', size='8,10', nodesep='0.5')
+
+        estilo_map = {
+            "inicio": {"shape": "circle", "style": "filled", "fillcolor": "lightgreen"},
+            "tarefa": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightblue"},
+            "verificacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "khaki"},
+            "publicacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightpink"},
+            "fiscalizacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightgrey"},
+            "fim": {"shape": "doublecircle", "style": "filled", "fillcolor": "red"}
+        }
+
+        for etapa in dados["etapas"]:
+            estilo = estilo_map.get(etapa["tipo"], {})
+            fluxo.node(etapa["id"], etapa["texto"], **estilo)
+
+        for origem, destino in dados["conexoes"]:
+            fluxo.edge(origem, destino)
+
+        st.graphviz_chart(fluxo)
+
+    # === Legenda e Base Legal ===
+    with col2:
+        st.subheader("📘 Legenda")
+        for tipo, estilo in estilo_map.items():
+            cor = estilo['fillcolor']
+            simbolo = "⬤" if estilo["shape"] == "circle" else "⬛"
+            st.markdown(f"{simbolo} **{tipo.capitalize()}** – cor `{cor}`")
+
+        st.markdown("---")
+        st.subheader("⚖️ Base Legal")
+        st.markdown(dados.get("base_legal", "Não informada."))
+
+except Exception as e:
+    st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
