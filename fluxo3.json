@@ -1,7 +1,7 @@
 {
-  "titulo": "Prestação de Contas – Validação de Certidões (AUDITUS)",
-  "setor": "Coordenadoria de Análise de Contas (CAC)",
-  "base_legal": "Provimento nº 19/2021 – Art. 8º",
+  "titulo": "Verificação de Certidões – AUDITUS",
+  "setor": "Coordenadoria de Análise de Contas",
+  "base_legal": "PROV. 19/2021 – Art. 8º",
   "etapas": [
     {
       "id": "start",
@@ -20,23 +20,23 @@
     },
     {
       "id": "d1",
-      "tipo": "decisao",
+      "tipo": "verificacao",
       "texto": "Certidões válidas?"
     },
     {
       "id": "t3",
       "tipo": "tarefa",
-      "texto": "Irregularidade Identificada"
+      "texto": "Irregularidade identificada"
     },
     {
       "id": "t4",
       "tipo": "tarefa",
-      "texto": "Abre PROC. DIGIDOC"
+      "texto": "Coord. Análise de Contas abre PROC. DIGIDOC"
     },
     {
       "id": "t5",
-      "tipo": "documento",
-      "texto": "Minuta de decisão – PAD Prov. 19/2021 Art. 8º"
+      "tipo": "tarefa",
+      "texto": "Minuta de decisão – abertura PAD PROV. 19/2021 art. 8º"
     },
     {
       "id": "t6",
@@ -46,7 +46,7 @@
     {
       "id": "t7",
       "tipo": "tarefa",
-      "texto": "Encaminha p/ setor de reclamações – CPADES"
+      "texto": "Encaminha para setor de reclamações – CPADES"
     },
     {
       "id": "t8",
@@ -98,14 +98,13 @@
       "t8"
     ],
     [
+      "t8",
+      "end"
+    ],
+    [
       "d1",
       "end",
       "Sim"
-    ],
-    [
-      "t8",
-      "end"
     ]
-  ],
-  "gerado_em": "2025-04-10T03:46:40.110404"
+  ]
 }
