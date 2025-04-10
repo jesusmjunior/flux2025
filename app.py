@@ -44,18 +44,35 @@ with col_texto:
 
 st.divider()
 
-# === Seleção de fluxo ===
-arquivos_fluxo = [f for f in os.listdir() if f.startswith("fluxo") and f.endswith(".json")]
-fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
+# === Seleção de fluxo - MODIFICADO PARA ACEITAR QUALQUER ARQUIVO JSON ===
+arquivos_json = [f for f in os.listdir() if f.endswith(".json")]
+if arquivos_json:
+    fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_json)
+else:
+    st.warning("Nenhum arquivo JSON encontrado no diretório atual.")
+    st.stop()
 
 # === Processamento do fluxo selecionado ===
 try:
     with open(fluxo_selecionado, encoding='utf-8') as f:
         dados = json.load(f)
 
+    # Verificar se o arquivo JSON tem a estrutura esperada
+    if not all(key in dados for key in ["titulo", "etapas", "conexoes"]):
+        st.error("O arquivo JSON selecionado não contém a estrutura necessária para um fluxograma.")
+        st.stop()
+
     st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
     setor_atual = dados.get("setor", setores_cogex[0])
-    setor_escolhido = st.selectbox("🏛️ Setor:", setores_cogex, index=setores_cogex.index(setor_atual))
+    
+    # Verificar se o setor está na lista e definir o índice adequadamente
+    try:
+        setor_index = setores_cogex.index(setor_atual)
+    except ValueError:
+        setor_index = 0
+        st.warning(f"Setor '{setor_atual}' não encontrado na lista de setores COGEX. Selecionando o primeiro setor por padrão.")
+    
+    setor_escolhido = st.selectbox("🏛️ Setor:", setores_cogex, index=setor_index)
 
     # === Renderizar fluxo + legenda ===
     col_fluxo, col_dados = st.columns([2.5, 1], gap="medium")
@@ -77,8 +94,11 @@ try:
             estilo = estilo_map.get(etapa["tipo"], {})
             fluxo.node(etapa["id"], etapa["texto"], **estilo)
 
-        for origem, destino in dados["conexoes"]:
-            fluxo.edge(origem, destino)
+        for conexao in dados["conexoes"]:
+            # Verificar se a conexão tem o formato esperado (origem, destino)
+            if len(conexao) >= 2:
+                origem, destino = conexao[0], conexao[1]
+                fluxo.edge(origem, destino)
 
         st.graphviz_chart(fluxo)
 
@@ -197,7 +217,9 @@ try:
         </html>
         """
 
-        nome_html = "fluxo_visual_exportado_A4.html"
+        # Usar o nome do arquivo JSON para a exportação HTML
+        nome_base = os.path.splitext(fluxo_selecionado)[0]
+        nome_html = f"{nome_base}_visual_exportado.html"
         with open(nome_html, "w", encoding="utf-8") as f:
             f.write(html_export_visual)
 
