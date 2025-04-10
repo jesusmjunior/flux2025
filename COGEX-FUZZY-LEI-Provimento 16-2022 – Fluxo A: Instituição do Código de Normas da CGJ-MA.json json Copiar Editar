@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 16-2022 – Fluxo A: Instituição do Código de Normas da CGJ-MA",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 16, de 28 de abril de 2022 + Constituição Federal + Lei nº 6.015/1973 + Lei nº 8.935/1994 + Resoluções e Provimentos do CNJ. Institui o novo Código de Normas da Corregedoria Geral da Justiça do Maranhão, consolidando, sistematizando e modernizando as normas aplicáveis ao foro extrajudicial.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do novo Código de Normas (Provimento nº 16/2022)"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Treinamento das Serventias\n- Seminários e vídeos\n- Cartilhas de orientação"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Adequação dos Procedimentos Internos\n- Adaptação de modelos\n- Checklists de conformidade"
+    },
+    {
+      "id": "t3",
+      "tipo": "fiscalizacao",
+      "texto": "3. Fiscalização da Implementação\n- Inspeções presenciais e remotas\n- Diagnóstico das adequações"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Monitoramento de Impacto\n- Análise de decisões judiciais\n- Reflexos práticos e doutrinários"
+    },
+    {
+      "id": "t5",
+      "tipo": "publicacao",
+      "texto": "5. Emissão de Normas Complementares\n- Provimentos para temas específicos\n- Ampliação normativa"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Código aplicado integralmente no foro extrajudicial"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
