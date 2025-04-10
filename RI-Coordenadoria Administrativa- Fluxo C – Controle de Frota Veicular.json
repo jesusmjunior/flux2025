@@ -1,0 +1,20 @@
+{
+  "titulo": "Fluxo C – Controle de Frota Veicular",
+  "setor": "Coordenadoria Administrativa",
+  "base_legal": "Art. 31 – Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Agendar Veículos\n- Solicitar via sistema\n- Registrar uso"},
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Acompanhar Manutenção\n- Limpeza\n- Reparo\n- Abastecimento"},
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Verificar Consumo\n- Relatórios de gasto\n- Controle de peças"},
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Escala e Diárias\n- Motoristas\n- Controle de viagens"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
