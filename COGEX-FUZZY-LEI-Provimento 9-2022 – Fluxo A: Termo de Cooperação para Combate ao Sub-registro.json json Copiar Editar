@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 9-2022 – Fluxo A: Termo de Cooperação para Combate ao Sub-registro",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 9, de 2022 + Constituição Federal + Lei nº 9.534/1997 + Lei nº 6.015/1973 + Provimento CNJ nº 13/2010. Estabelece modelo de termo de cooperação entre cartórios e prefeituras para combate ao sub-registro civil de nascimento em regiões com baixos índices de registro.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 9/2022"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Formalização do Termo de Cooperação\n- Cartório e Prefeitura\n- Metas e logística"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Mobilização Social\n- Rádios, escolas, agentes de saúde\n- Divulgação local"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Execução de Mutirões e Unidades Interligadas\n- Emissão de certidões, CPFs, RGs\n- Ações presenciais e integradas"
+    },
+    {
+      "id": "t4",
+      "tipo": "fiscalizacao",
+      "texto": "4. Monitoramento das Ações\n- Relatórios de cobertura\n- Avaliação qualitativa"
+    },
+    {
+      "id": "t5",
+      "tipo": "publicacao",
+      "texto": "5. Premiação e Replicação\n- Divulgação no Portal COGEX\n- Estímulo a novas comarcas"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Avanço no combate ao sub-registro civil"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
