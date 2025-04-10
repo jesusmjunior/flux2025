@@ -205,7 +205,7 @@ try:
             <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
             <h2>{dados['titulo']}</h2>
           </header>
-          <div class=\"setor\"><strong>Arquivo:</strong> {fluxo_selecionado}</div>
+          <div class=\"setor\"><strong>Arquivo:</strong> {os.path.basename(fluxo_selecionado)}</div>
           <div class=\"colunas\">
             <div class=\"col1\">
         """
