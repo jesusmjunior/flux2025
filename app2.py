@@ -56,7 +56,7 @@ def configure_app_settings():
             padding-top: 1.5rem;
         }
         .stApp {
-            background-color: #f9f9fc;
+            background-color: #000000;
         }
         h1, h2, h3 {
             color: #2c3e50;
