@@ -72,7 +72,9 @@ st.markdown("""
     }
 
     @keyframes talk {
-        0%, 100% { opacity: 0; }
+        0%, 95%, 100% { opacity: 0; }
+        10%, 85% { opacity: 1; }
+    }
         20%, 80% { opacity: 1; }
     }
 """, unsafe_allow_html=True)
@@ -91,7 +93,7 @@ st.divider()
 # === Robô Flutuante Lateral ===
 st.markdown("""
 <div class="floating-robot">
-    <div class="speech-bubble">Olá! Precisa de ajuda?</div>
+    <div class=\"speech-bubble\"><a href=\"https://www.tjma.jus.br/site/extrajudicial\" target=\"_blank\">Acesse COGEX</a></div>
     <img src=\"https://cdn-icons-png.flaticon.com/512/4712/4712035.png\" width="60">
     <div class="placa-jj">JJ I.A. COGEX</div>
 </div>
