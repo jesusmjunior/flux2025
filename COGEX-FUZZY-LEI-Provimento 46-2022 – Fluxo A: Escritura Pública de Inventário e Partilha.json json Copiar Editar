@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 46-2022 – Fluxo A: Escritura Pública de Inventário e Partilha",
+  "setor": "Núcleo de Direito das Sucessões",
+  "base_legal": "Provimento nº 46, de 11 de outubro de 2022 + Código Civil + Lei nº 11.441/2007 + Código de Normas da CGJ-MA. Altera dispositivos do Código de Normas da CGJ-MA relacionados à lavratura de escritura pública de inventário e partilha, promovendo clareza e celeridade nos atos extrajudiciais.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do provimento e pedido de lavratura de inventário"
+    },
+    {
+      "id": "t1",
+      "tipo": "verificacao",
+      "texto": "1. Verificação dos Requisitos\n- Herdeiros presentes\n- Inexistência de testamento\n- Consenso das partes"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Redação da Escritura\n- Descrição dos bens\n- Anuência das partes\n- Quitação de tributos"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Validação e Assinatura\n- Coleta de assinaturas\n- Ato lavrado digital ou presencialmente"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Averbação Cartorial\n- Envio ao RI e cartórios de competência\n- Desdobramentos patrimoniais"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalização e Conformidade\n- Inspeção periódica\n- Emissão de relatório"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Partilha formalizada com segurança jurídica"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
