@@ -6,104 +6,70 @@
     {
       "id": "start",
       "tipo": "inicio",
-      "texto": "Início: AUDITUS"
+      "texto": "Início"
     },
     {
       "id": "t1",
       "tipo": "tarefa",
-      "texto": "Delegatário insere as certidões"
+      "texto": "1. Inserção de Documentos\n- Delegatário insere as certidões no sistema AUDITUS"
     },
     {
       "id": "t2",
       "tipo": "verificacao",
-      "texto": "Coord. Análise de Contas checa a validade"
+      "texto": "2. Análise de Validade\n- Coordenadoria de Análise de Contas verifica a validade das certidões"
     },
     {
       "id": "d1",
       "tipo": "verificacao",
-      "texto": "Certidões válidas?"
+      "texto": "3. Resultado da Verificação\n- Certidões válidas?"
     },
     {
       "id": "t3",
       "tipo": "tarefa",
-      "texto": "Irregularidade identificada"
+      "texto": "4. Tratamento de Irregularidade\n- Identificar irregularidades\n- Documentar problemas encontrados"
     },
     {
       "id": "t4",
       "tipo": "tarefa",
-      "texto": "Coord. Análise de Contas abre PROC. DIGIDOC"
+      "texto": "5. Abertura de Processo\n- Coord. Análise de Contas abre PROC. DIGIDOC"
     },
     {
       "id": "t5",
       "tipo": "tarefa",
-      "texto": "Minuta de decisão – abertura PAD PROV. 19/2021 art. 8º"
+      "texto": "6. Preparação de Documentos\n- Elaborar minuta de decisão\n- Fundamentar com PROV. 19/2021 art. 8º"
     },
     {
       "id": "t6",
       "tipo": "tarefa",
-      "texto": "Corregedor assina"
+      "texto": "7. Formalização\n- Corregedor assina documentação\n- Validar processo"
     },
     {
       "id": "t7",
       "tipo": "tarefa",
-      "texto": "Encaminha para setor de reclamações – CPADES"
+      "texto": "8. Encaminhamento\n- Direcionar para setor de reclamações (CPADES)\n- Registrar transferência"
     },
     {
       "id": "t8",
       "tipo": "tarefa",
-      "texto": "Coord. Análise de Contas ARQUIVA"
+      "texto": "9. Arquivamento\n- Coord. Análise de Contas finaliza e arquiva o processo"
     },
     {
       "id": "end",
       "tipo": "fim",
-      "texto": "Fim do Processo"
+      "texto": "Encerramento"
     }
   ],
   "conexoes": [
-    [
-      "start",
-      "t1"
-    ],
-    [
-      "t1",
-      "t2"
-    ],
-    [
-      "t2",
-      "d1"
-    ],
-    [
-      "d1",
-      "t3",
-      "Não"
-    ],
-    [
-      "t3",
-      "t4"
-    ],
-    [
-      "t4",
-      "t5"
-    ],
-    [
-      "t5",
-      "t6"
-    ],
-    [
-      "t6",
-      "t7"
-    ],
-    [
-      "t7",
-      "t8"
-    ],
-    [
-      "t8",
-      "end"
-    ],
-    [
-      "d1",
-      "end",
-      "Sim"
-    ]
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "d1"],
+    ["d1", "t3", "Não"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "t7"],
+    ["t7", "t8"],
+    ["t8", "end"],
+    ["d1", "end", "Sim"]
+  ]
 }
