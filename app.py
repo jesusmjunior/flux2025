@@ -181,48 +181,70 @@ try:
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
 
-# === Exportação Visual ===
+# === Exportação visual A4 com layout ===
 
 import streamlit.components.v1 as components
 
-# === Botão para exportar visualização atual em A4 ===
-with st.expander("🖨️ Exportar visualização como página A4"):
+# === Botão de exportação de visualização com opção de layout ===
+with st.expander("📄 Exportar visualização (HTML para impressão A4)"):
+    layout_opcao = st.radio("Escolha o layout da página:", ["📄 Retrato (Vertical)", "📄 Paisagem (Horizontal)"])
+
+    orientacao_css = "portrait" if "Retrato" in layout_opcao else "landscape"
+
     html_export = f'''
     <!DOCTYPE html>
     <html lang="pt-br">
     <head>
       <meta charset="UTF-8">
-      <title>Exportação Visual</title>
+      <title>Visualização Fluxo COGEX</title>
       <style>
+        @page {{
+          size: A4 {orientacao_css};
+          margin: 20mm;
+        }}
         body {{
           font-family: Arial, sans-serif;
-          max-width: 800px;
+          max-width: 900px;
           margin: auto;
-          padding: 40px;
+          padding: 20px;
         }}
         .header {{
           text-align: center;
+          margin-bottom: 20px;
         }}
         .header img {{
           height: 80px;
         }}
-        .content {{
+        .fluxo-img {{
+          display: block;
+          max-width: 90%;
+          margin: 20px auto;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }}
+        .section {{
           margin-top: 20px;
+        }}
+        footer {{
+          margin-top: 40px;
+          font-size: 10px;
+          color: gray;
+          text-align: center;
+          border-top: 1px solid #ccc;
+          padding-top: 10px;
         }}
         .print-btn {{
           display: block;
-          margin: 20px auto;
+          margin: 10px auto;
           padding: 10px 20px;
-          background-color: #333;
+          font-size: 14px;
+          background: #333;
           color: white;
           border: none;
           cursor: pointer;
-          font-size: 16px;
         }}
         @media print {{
-          .print-btn {{
-            display: none;
-          }}
+          .print-btn {{ display: none; }}
         }}
       </style>
     </head>
@@ -233,20 +255,32 @@ with st.expander("🖨️ Exportar visualização como página A4"):
         <h2>{dados.get("titulo", "")}</h2>
         <p><strong>Setor:</strong> {setor_escolhido}</p>
       </div>
-      <div class="content">
-        <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
-        <p><strong>📘 Legenda:</strong><br>
+
+      <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+
+      <img src="data:image/png;base64,{img_b64}" class="fluxo-img">
+
+      <div class="section">
+        <h3>📘 Legenda</h3>
         ⬤ Início – lightgreen<br>
         ⬛ Tarefa – lightblue<br>
         ⬛ Verificação – khaki<br>
         ⬛ Publicação – lightpink<br>
         ⬛ Fiscalização – lightgrey<br>
-        ⬤ Fim – red</p>
-        <p><strong>⚖️ Base Legal:</strong><br>{dados.get("base_legal", "")}</p>
+        ⬤ Fim – red
       </div>
+
+      <div class="section">
+        <h3>⚖️ Base Legal</h3>
+        <p>{dados.get("base_legal", "")}</p>
+      </div>
+
+      <footer>
+        Sistema de Modelagem de Processos – COGEX/TJMA
+      </footer>
     </body>
     </html>
     '''
 
-    st.download_button("📥 Baixar HTML da visualização A4", data=html_export,
-                       file_name="visualizacao_fluxo_A4.html", mime="text/html")
+    st.download_button("📥 Baixar HTML para impressão", data=html_export,
+                       file_name="fluxo_visualizacao_A4.html", mime="text/html")
