@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 19-2021 – Fluxo A: Certidões Fiscais no Sistema Auditus",
+  "setor": "Coordenadoria Financeira",
+  "base_legal": "Provimento nº 19, de 2021 + Lei nº 6.015/1973 + Provimento CNJ nº 88/2019 + Código de Normas da CGJ-MA. Regulamenta o envio mensal de certidões fiscais pelos titulares, interinos e interventores das serventias extrajudiciais ao sistema Auditus, garantindo a transparência e o controle fiscal da arrecadação cartorária. Submissão das certidões de arrecadação, recolhimentos, compensações e guias fiscais via Auditus até a data-limite estipulada.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 19/2021"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Orientação sobre o envio das certidões\n- Treinamentos e manuais\n- Suporte técnico aos cartórios"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Organização das Certidões Mensais\n- DARF, guias FERJ, notas fiscais\n- Comprovação de recolhimentos"
+    },
+    {
+      "id": "t3",
+      "tipo": "publicacao",
+      "texto": "3. Envio via Sistema Auditus\n- Upload por competência\n- Até o 5º dia útil do mês"
+    },
+    {
+      "id": "t4",
+      "tipo": "verificacao",
+      "texto": "4. Verificação pela Corregedoria\n- Conferência da arrecadação\n- Validação ou exigência"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Ação Corretiva\n- Intimação e sanções\n- Conformidade final"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Transparência e controle fiscal garantidos"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
