@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 10-2024 – Fluxo A: Implementação da Seção XIII no Código de Normas",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 10/2024 + LC nº 271/2024 + Código de Normas – Seção XIII",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 10/2024"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Análise Interna e Consolidação Técnica\n- Coordenadoria de Normatização + Assessoria Jurídica\n- Produção de parecer e memorando normativo"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Comunicação e Divulgação Oficial\n- Ofício circular + Portal\n- Materiais gráficos e vídeos explicativos"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Atualização de Roteiros de Fiscalização\n- Inclusão nos checklists e sistema da COGEX\n- Alinhamento com Coordenadoria de Inspeções"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Monitoramento das Serventias\n- Relatórios sobre adaptação normativa\n- Comparativo com procedimentos anteriores"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Aplicação uniforme da Seção XIII em todo o Estado"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
