@@ -1,0 +1,25 @@
+{
+  "titulo": "RI-Coordenadoria de Inspeções-Fluxo A – Planejamento e Coordenação de Inspeções",
+  "setor": "Coordenadoria de Inspeções",
+  "base_legal": "Art. 33, incisos I a VIII – Título II, Capítulo VI, Seção III do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Organização da Coordenadoria de Inspeções"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Manutenção de Base de Dados\n- Sistemas de controle\n- Histórico de inspeções"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Programação Anual\n- Serventias alvo\n- Publicação do calendário"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Agendamento e Notificações\n- Com apoio da Serventias Extrajudiciais"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Suporte a Outras Coordenadorias\n- Comunicação com Assessoria de Comunicação"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Inspeções programadas e notificadas"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
