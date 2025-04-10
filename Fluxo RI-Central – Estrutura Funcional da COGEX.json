@@ -1,0 +1,20 @@
+{
+  "titulo": "RI-Central – Estrutura Funcional da Corregedoria Geral do Foro Extrajudicial",
+  "setor": "Diretoria do COGEX",
+  "base_legal": "Art. 1º ao 3º – Capítulo I, Seção I do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Estrutura da COGEX"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Administração Superior\n- Corregedor-Geral\n- Gabinete do Corregedor"},
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Assessoramento Direto\n- Assessoria Jurídica\n- Gabinete Juízes Auxiliares\n- Gestão Estratégica\n- Secretaria Geral"},
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Suporte Operacional\n- Coord. Administrativa\n- Serventias Extrajudiciais\n- Inspeções\n- Análise de Contas\n- Reclamações/Disciplina"},
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Núcleos Estratégicos\n- NRC\n- NAPE\n- Iniciativas especiais"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Estrutura Validada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
