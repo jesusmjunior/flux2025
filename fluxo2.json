@@ -2,21 +2,49 @@
   "titulo": "Fluxo Lógico – Processo Endógeno",
   "subtitulo": "Atualização Normativa Institucional (Provimento nº 33/2024)",
   "base_legal": "Provimento nº 16/2022 + CNJ + Temas STJ/STF 1.067 e 1.144",
-  "legenda": [
-    "🟢 Início do Processo (Evento Inicial - BPMN)",
-    "📄 Atividade (Tarefa Padrão)",
-    "🔍 Verificação e Análise",
-    "📢 Publicação de Norma",
-    "🛡️ Supervisão e Controle",
-    "🔴 Fim do Processo (Evento Final)"
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Iniciar Estudo\n- Lacunas\n- Relatórios\n- Provimentos"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Redigir Minuta\n- Seção XIV\n- Prov. 16/22\n- Padrões COGEX"
+    },
+    {
+      "id": "t3",
+      "tipo": "verificacao",
+      "texto": "3. Analisar Conformidade\n- CNJ\n- STJ/STF"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Publicar Provimento\n- DJE\n- Notificações"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalizar Execução\n- Cumprimento\n- Medidas"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento"
+    }
   ],
-  "desenho": [
-    "🟢 Início",
-    "📄 Iniciar Estudo Interno - Identificar lacunas, Relatórios, Provimentos",
-    "📄 Redigir Minuta de Norma - Seção XIV, Prov. 16/22, Padrões COGEX",
-    "🔍 Analisar Conformidade - CNJ, Jurisprudência STJ/STF",
-    "📢 Publicar Provimento nº 33/2024 - DJE, Site, Notificações",
-    "🛡️ Executar Fiscalização - Cumprimento, Medidas disciplinares",
-    "🔴 Encerramento"
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
   ]
 }
