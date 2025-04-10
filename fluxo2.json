@@ -1,0 +1,14 @@
+{
+  "titulo": "Fluxo Lógico – Processo Endógeno",
+  "subtitulo": "Atualização Normativa Institucional (Provimento nº 33/2024)",
+  "base_legal": "Provimento nº 16/2022 + CNJ + Temas STJ/STF 1.067 e 1.144",
+  "legenda": [
+    "🟢 Início do Processo",
+    "📄 Etapa de Estudo e Redação",
+    "🔍 Análise de Conformidade",
+    "📢 Publicação Oficial",
+    "🛡️ Fiscalização e Acompanhamento",
+    "🔴 Encerramento"
+  ],
+  "desenho": "🟢 Início ➡️ 📄 Iniciar Estudo Interno ➡️ 📄 Redigir Minuta de Norma ➡️ 🔍 Analisar Conformidade ➡️ 📢 Publicar Provimento 33/2024 ➡️ 🛡️ Fiscalizar Cumprimento ➡️ 🔴 Encerramento"
+}
