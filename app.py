@@ -7,6 +7,21 @@ from datetime import datetime
 
 st.set_page_config(page_title="COGEX – Modelagem de Processos", layout="centered")
 
+# ================================
+# LOGIN SIMPLES
+# ================================
+def login():
+    st.title("🔐 Área Protegida - Login Obrigatório")
+    user = st.text_input("Usuário (Nome)")
+    password = st.text_input("Senha", type="password")
+
+    if (user == "COGEX" and password == "CGX"):
+        st.success("Login efetuado com sucesso ✅")
+        return True
+    else:
+        if user and password:
+            st.error("Usuário ou senha incorretos ❌")
+        return False
 # === Lista de setores da COGEX ===
 setores_cogex = [
     "Gabinete dos Juízes Corregedores",
