@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 9-2023 – Fluxo A: Atualização do Art. 708 do Código de Normas",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 9, de 20 de março de 2023 + Código de Normas da CGJ-MA – Artigo 708. Altera o art. 708 do Código de Normas da CGJ-MA, com foco na atualização de procedimentos para serventias que realizam atos notariais e registrais.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 9-2023 com nova redação do art. 708"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Análise Técnica do Artigo Alterado\n- Estudo comparativo antes/depois\n- Parecer interno com impactos práticos"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Comunicação aos Cartórios\n- Ofício-circular com explicações e exemplos\n- Confirmação de ciência dos delegatários"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Adequação Prática dos Procedimentos\n- Atualização de formulários e sistemas\n- Aplicação da nova norma no dia a dia"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Fiscalização Pós-Implementação\n- Inspeção remota ou presencial\n- Checklist com foco na nova redação"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Harmonização normativa e inclusão nos relatórios de boas práticas"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
