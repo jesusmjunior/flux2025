@@ -1,0 +1,28 @@
+{
+  "titulo": "RI-Coordenadoria de Inspeções-Fluxo B – Execução, Relatórios e Ações Correcionais",
+  "setor": "Coordenadoria de Inspeções",
+  "base_legal": "Art. 33, incisos IX a XXIII – Título II, Capítulo VI, Seção III do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Execução de inspeção determinada"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Inspeção Presencial ou Remota\n- Acompanhamento da atividade notarial"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Coleta e Análise de Dados\n- Exame de livros\n- Identificação de irregularidades"},
+    
+    {"id": "t3", "tipo": "fiscalizacao", "texto": "3. Apuração de Conformidade\n- Declaração de conformidade\n- Sugestão de PAD"},
+    
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Relatório Técnico\n- Encaminhamento à Corregedoria\n- Providências recomendadas"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Controle e Arquivamento\n- Prazos\n- Registro de reincidência"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Inspeção concluída com medidas aplicadas"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
