@@ -1,50 +1,87 @@
-{
-  "titulo": "Processo Endógeno – Atualização Normativa (Provimento nº 33/2024)",
-  "setor": "CGJ/MA – Coordenação de Normas (COGEX)",
-  "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
-  "etapas": [
-    {
-      "id": "start",
-      "tipo": "inicio",
-      "texto": "Início"
-    },
-    {
-      "id": "t1",
-      "tipo": "tarefa",
-      "texto": "1. Iniciar Estudo Interno\n- Identificar lacunas\n- Receber relatórios\n- Levantar provimentos"
-    },
-    {
-      "id": "t2",
-      "tipo": "tarefa",
-      "texto": "2. Redigir Minuta de Norma\n- Seção XIV\n- Prov. 16/22\n- Padrões COGEX"
-    },
-    {
-      "id": "t3",
-      "tipo": "verificacao",
-      "texto": "3. Analisar Conformidade\n- CNJ\n- STJ/STF"
-    },
-    {
-      "id": "t4",
-      "tipo": "publicacao",
-      "texto": "4. Publicar Provimento\n- DJE\n- Notificar serventias"
-    },
-    {
-      "id": "t5",
-      "tipo": "fiscalizacao",
-      "texto": "5. Fiscalizar Execução\n- Verificar cumprimento\n- Medidas disciplinares"
-    },
-    {
-      "id": "end",
-      "tipo": "fim",
-      "texto": "Encerramento"
-    }
-  ],
-  "conexoes": [
-    ["start", "t1"],
-    ["t1", "t2"],
-    ["t2", "t3"],
-    ["t3", "t4"],
-    ["t4", "t5"],
-    ["t5", "end"]
-  ]
+# Criação dos arquivos fluxo2.json e modelo_fluxoX.json completos e padronizados
+
+fluxo2_completo = {
+    "titulo": "Processo Endógeno – Atualização Normativa (Provimento nº 33/2024)",
+    "setor": "Coordenadoria de Serventias Extrajudiciais",
+    "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
+    "etapas": [
+        {
+            "id": "start",
+            "tipo": "inicio",
+            "texto": "Início"
+        },
+        {
+            "id": "t1",
+            "tipo": "tarefa",
+            "texto": "1. Iniciar Estudo Interno\n- Identificar lacunas\n- Receber relatórios\n- Levantar provimentos"
+        },
+        {
+            "id": "t2",
+            "tipo": "tarefa",
+            "texto": "2. Redigir Minuta de Norma\n- Seção XIV\n- Prov. 16/22\n- Padrões COGEX"
+        },
+        {
+            "id": "t3",
+            "tipo": "verificacao",
+            "texto": "3. Analisar Conformidade\n- CNJ\n- STJ/STF"
+        },
+        {
+            "id": "t4",
+            "tipo": "publicacao",
+            "texto": "4. Publicar Provimento\n- DJE\n- Notificar serventias"
+        },
+        {
+            "id": "t5",
+            "tipo": "fiscalizacao",
+            "texto": "5. Fiscalizar Execução\n- Verificar cumprimento\n- Medidas disciplinares"
+        },
+        {
+            "id": "end",
+            "tipo": "fim",
+            "texto": "Encerramento"
+        }
+    ],
+    "conexoes": [
+        ["start", "t1"],
+        ["t1", "t2"],
+        ["t2", "t3"],
+        ["t3", "t4"],
+        ["t4", "t5"],
+        ["t5", "end"]
+    ]
 }
+
+modelo_fluxox = {
+    "titulo": "TÍTULO DO FLUXOGRAMA",
+    "setor": "SELECIONE O SETOR RESPONSÁVEL",
+    "base_legal": "INSIRA A NORMA / RESOLUÇÃO / LEI APLICÁVEL",
+    "etapas": [
+        {
+            "id": "start",
+            "tipo": "inicio",
+            "texto": "Início"
+        },
+        {
+            "id": "t1",
+            "tipo": "tarefa",
+            "texto": "Descreva a primeira etapa aqui"
+        },
+        {
+            "id": "end",
+            "tipo": "fim",
+            "texto": "Encerramento"
+        }
+    ],
+    "conexoes": [
+        ["start", "t1"],
+        ["t1", "end"]
+    ]
+}
+
+with open("/mnt/data/fluxo2.json", "w", encoding="utf-8") as f:
+    json.dump(fluxo2_completo, f, indent=2, ensure_ascii=False)
+
+with open("/mnt/data/modelo_fluxoX.json", "w", encoding="utf-8") as f:
+    json.dump(modelo_fluxox, f, indent=2, ensure_ascii=False)
+
+"/mnt/data/fluxo2.json", "/mnt/data/modelo_fluxoX.json"
