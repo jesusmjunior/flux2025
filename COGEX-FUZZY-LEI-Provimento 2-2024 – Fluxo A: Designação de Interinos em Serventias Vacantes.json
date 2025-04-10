@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 2-2024 – Fluxo A: Designação de Interinos em Serventias Vacantes",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Provimento nº 2/2024 + Art. 144-A da LC nº 14/91 + Provimento CGJ-MA nº 16/2022",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Vacância formal da serventia e comunicação ao COGEX"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Abertura do Procedimento\n- Certidão de vacância\n- Histórico e autuação do processo"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise de Candidatos\n- Critérios objetivos (LC, Provimento, Res. CNJ)\n- Quadro comparativo elaborado"},
+    
+    {"id": "t3", "tipo": "publicacao", "texto": "3. Elaboração e Publicação da Portaria\n- Redação com revisão da Assessoria Jurídica\n- Publicação no DJE/MA"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Notificação e Posse\n- Ofício ao interino e à serventia\n- Tomada de posse até 5 dias úteis"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Inclusão em Acompanhamento Contábil\n- Comunicação à CAC\n- Vinculação ao Prov. 13/2024"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Designação oficializada e fiscalização iniciada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
