@@ -1,0 +1,111 @@
+{
+  "titulo": "Prestação de Contas – Validação de Certidões (AUDITUS)",
+  "setor": "Coordenadoria de Análise de Contas (CAC)",
+  "base_legal": "Provimento nº 19/2021 – Art. 8º",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início: AUDITUS"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "Delegatário insere as certidões"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "Coord. Análise de Contas checa a validade"
+    },
+    {
+      "id": "d1",
+      "tipo": "decisao",
+      "texto": "Certidões válidas?"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "Irregularidade Identificada"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "Abre PROC. DIGIDOC"
+    },
+    {
+      "id": "t5",
+      "tipo": "documento",
+      "texto": "Minuta de decisão – PAD Prov. 19/2021 Art. 8º"
+    },
+    {
+      "id": "t6",
+      "tipo": "tarefa",
+      "texto": "Corregedor assina"
+    },
+    {
+      "id": "t7",
+      "tipo": "tarefa",
+      "texto": "Encaminha p/ setor de reclamações – CPADES"
+    },
+    {
+      "id": "t8",
+      "tipo": "tarefa",
+      "texto": "Coord. Análise de Contas ARQUIVA"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Fim do Processo"
+    }
+  ],
+  "conexoes": [
+    [
+      "start",
+      "t1"
+    ],
+    [
+      "t1",
+      "t2"
+    ],
+    [
+      "t2",
+      "d1"
+    ],
+    [
+      "d1",
+      "t3",
+      "Não"
+    ],
+    [
+      "t3",
+      "t4"
+    ],
+    [
+      "t4",
+      "t5"
+    ],
+    [
+      "t5",
+      "t6"
+    ],
+    [
+      "t6",
+      "t7"
+    ],
+    [
+      "t7",
+      "t8"
+    ],
+    [
+      "d1",
+      "end",
+      "Sim"
+    ],
+    [
+      "t8",
+      "end"
+    ]
+  ],
+  "gerado_em": "2025-04-10T03:46:40.110404"
+}
