@@ -1,6 +1,4 @@
-# Criação dos arquivos fluxo2.json e modelo_fluxoX.json completos e padronizados
-
-fluxo2_completo = {
+{
     "titulo": "Processo Endógeno – Atualização Normativa (Provimento nº 33/2024)",
     "setor": "Coordenadoria de Serventias Extrajudiciais",
     "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
@@ -77,11 +75,3 @@ modelo_fluxox = {
         ["t1", "end"]
     ]
 }
-
-with open("/mnt/data/fluxo2.json", "w", encoding="utf-8") as f:
-    json.dump(fluxo2_completo, f, indent=2, ensure_ascii=False)
-
-with open("/mnt/data/modelo_fluxoX.json", "w", encoding="utf-8") as f:
-    json.dump(modelo_fluxox, f, indent=2, ensure_ascii=False)
-
-"/mnt/data/fluxo2.json", "/mnt/data/modelo_fluxoX.json"
