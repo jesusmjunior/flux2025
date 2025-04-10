@@ -1,0 +1,25 @@
+{
+  "titulo": "RI-Núcleos Estratégicos da COGEX-Fluxo A – Acesso, Governança e Interlocução Externa",
+  "setor": "Núcleo de Registro Civil",
+  "base_legal": "Art. 37 e 38 – Título II, Capítulo VI, Seção VI do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Ativação de ações integradas dos Núcleos"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Estabelecer Convênios\n- Órgãos públicos\n- Iniciativa privada\n- Cartórios parceiros"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Avaliar Demanda Estratégica\n- Sub-registro\n- Governança fundiária\n- Capacitação contínua"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Executar Ação de Campo\n- Vistorias\n- Mutirões de registro\n- Monitoramento de cumprimento"},
+    
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Relatórios e Divulgação\n- Resultados consolidados\n- Informes à Corregedoria Nacional"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Impacto institucional consolidado"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
