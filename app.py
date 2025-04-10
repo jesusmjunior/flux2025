@@ -1,13 +1,14 @@
+
 import streamlit as st
 import json
 import os
 from graphviz import Digraph
 from PIL import Image
 from datetime import datetime
+import base64
 
 st.set_page_config(page_title="COGEX – Modelagem de Processos", layout="centered")
 
-# === Lista oficial de setores da COGEX ===
 setores_cogex = [
     "Gabinete dos Juízes Corregedores",
     "Núcleo de Registro Civil",
@@ -22,7 +23,6 @@ setores_cogex = [
     "Coordenadoria de Análise de Contas"
 ]
 
-# === Estilo HTML A4 central ===
 st.markdown("""
     <style>
     .main {
@@ -33,7 +33,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# === Cabeçalho com logotipo ===
+# === Cabeçalho institucional ===
 col_logo, col_texto = st.columns([1, 4])
 with col_logo:
     if os.path.exists("cogex.png"):
@@ -44,22 +44,19 @@ with col_texto:
 
 st.divider()
 
-# === Seleção do fluxo ===
 arquivos_fluxo = [f for f in os.listdir() if f.startswith("fluxo") and f.endswith(".json")]
 fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
 
-# === Carregamento do JSON ===
 try:
     with open(fluxo_selecionado, encoding='utf-8') as f:
         dados = json.load(f)
 
     st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
-
     setor_atual = dados.get("setor", setores_cogex[0])
     setor_escolhido = st.selectbox("🏛️ Setor:", setores_cogex, index=setores_cogex.index(setor_atual))
 
-    # === Fluxo + Legenda ===
     col_fluxo, col_dados = st.columns([2.5, 1], gap="medium")
+
     with col_fluxo:
         fluxo = Digraph('Fluxograma', format='png')
         fluxo.attr(rankdir='TB', size='8,10', nodesep='0.5')
@@ -93,217 +90,101 @@ try:
         st.subheader("⚖️ Base Legal")
         st.markdown(dados.get("base_legal", "Não informada."))
 
-    # === Botão de exportação ===
+    # === Botão de exportação com imagem do fluxo ===
     st.markdown("---")
-    if st.button("📤 Exportar para HTML (modo A4)"):
-        html_template = f"""
+    if st.button("📤 Exportar com desenho real do fluxo (HTML)"):
+        fluxo_real = Digraph("fluxograma", format="png")
+        fluxo_real.attr(rankdir="TB", size="8,10", nodesep="0.5")
+
+        for etapa in dados["etapas"]:
+            estilo = estilo_map.get(etapa["tipo"], {})
+            fluxo_real.node(etapa["id"], etapa["texto"], **estilo)
+
+        for origem, destino in dados["conexoes"]:
+            fluxo_real.edge(origem, destino)
+
+        nome_base = "fluxo_desenhado"
+        caminho_img = fluxo_real.render(f"/tmp/{nome_base}", cleanup=True)
+
+        with open(caminho_img, "rb") as img_file:
+            img_b64 = base64.b64encode(img_file.read()).decode()
+
+        html_img = f"""
         <!DOCTYPE html>
         <html lang="pt-br">
         <head>
           <meta charset="UTF-8">
-          <title>{dados['titulo']}</title>
+          <title>{dados.get("titulo", "Fluxograma")}</title>
           <style>
             body {{
                 font-family: Arial, sans-serif;
                 max-width: 800px;
                 margin: auto;
                 padding: 40px;
-                background: #fff;
-                color: #111;
             }}
             header {{
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                margin-bottom: 30px;
+                text-align: center;
                 border-bottom: 1px solid #ccc;
+                margin-bottom: 20px;
             }}
             header img {{
                 height: 80px;
             }}
-            h1 {{
-                margin: 0;
-                font-size: 20px;
+            h1, h2 {{
+                margin: 5px;
             }}
-            h2 {{
-                font-size: 18px;
-                margin-top: 10px;
+            .fluxo-img {{
+                max-height: 800px;
+                width: auto;
+                display: block;
+                margin: auto;
+                border: 1px solid #ccc;
+                border-radius: 6px;
             }}
-            .info p {{
-                margin: 5px 0;
+            .legenda {{
+                font-size: 14px;
+                margin-top: 20px;
             }}
             footer {{
                 text-align: center;
-                margin-top: 40px;
-                font-size: 12px;
-                color: #666;
+                font-size: 11px;
+                color: #888;
+                margin-top: 30px;
+                border-top: 1px solid #ccc;
+                padding-top: 10px;
             }}
           </style>
         </head>
         <body>
           <header>
-            <img src="cogex.png" alt="Logo COGEX">
-            <div>
-                <h1>COGEX - Corregedoria do Foro Extrajudicial</h1>
-                <h2>{dados['titulo']}</h2>
-            </div>
+            <img src="cogex.png" alt="Logo COGEX"><br>
+            <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
+            <h2>{dados.get("titulo", "")}</h2>
           </header>
-
-          <div class="info">
-            <p><strong>Setor:</strong> {setor_escolhido}</p>
-            <p><strong>Base Legal:</strong> {dados['base_legal']}</p>
+          <p><strong>Setor:</strong> {setor_escolhido}</p>
+          <img src="data:image/png;base64,{{img_b64}}" alt="Fluxograma desenhado" class="fluxo-img">
+          <div class="legenda">
+            <h3>📘 Legenda</h3>
+            ⬤ Início – `lightgreen`<br>
+            ⬛ Tarefa – `lightblue`<br>
+            ⬛ Verificação – `khaki`<br>
+            ⬛ Publicação – `lightpink`<br>
+            ⬛ Fiscalização – `lightgrey`<br>
+            ⬤ Fim – `red`
           </div>
-
-          <h3>Etapas do Fluxograma</h3>
-          <ol>
-        """
-        for etapa in dados["etapas"]:
-            html_template += f'<li><strong>{etapa["tipo"].capitalize()}</strong>: {etapa["texto"].replace(chr(10), "<br>")}</li>\n'
-
-        html_template += f"""
-          </ol>
           <footer>
-            Documento gerado automaticamente por AppPy-Cogex ©<br>
-            Exportado em: {datetime.now().strftime("%d/%m/%Y %H:%M")}
+            Gerado automaticamente com desenho real – AppPy COGEX ©
           </footer>
         </body>
         </html>
-        """
+        """.replace("{{img_b64}}", img_b64)
 
-        html_path = "fluxo_exportado_a4.html"
-        with open(html_path, "w", encoding="utf-8") as f:
-            f.write(html_template)
+        nome_html = "fluxograma_com_imagem.html"
+        with open(nome_html, "w", encoding="utf-8") as f:
+            f.write(html_img)
 
-        with open(html_path, "rb") as f:
-            st.download_button("📥 Baixar HTML Exportado", f, file_name=html_path, mime="text/html")
+        with open(nome_html, "rb") as f:
+            st.download_button("📥 Baixar HTML com desenho real do fluxo", f, file_name=nome_html, mime="text/html")
 
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
-    # === Botão de exportação HTML final (visual real do app) ===
-st.markdown("---")
-if st.button("📤 Exportar para HTML (modo A4 institucional com fluxograma real)"):
-    html_export_visual = f"""
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <title>{dados['titulo']}</title>
-      <style>
-        body {{
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 40px;
-            color: #111;
-        }}
-        header {{
-            text-align: center;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }}
-        header img {{
-            width: 120px;
-        }}
-        h1 {{
-            font-size: 20px;
-            margin: 10px 0 0 0;
-        }}
-        h2 {{
-            font-size: 18px;
-            color: #222;
-        }}
-        .setor {{
-            background: #f3f3f3;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }}
-        .colunas {{
-            display: flex;
-            gap: 30px;
-        }}
-        .col1 {{
-            flex: 2;
-        }}
-        .col2 {{
-            flex: 1;
-            font-size: 14px;
-        }}
-        .box {{
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }}
-        .inicio {{ background: lightgreen; }}
-        .tarefa {{ background: lightblue; }}
-        .verificacao {{ background: khaki; }}
-        .publicacao {{ background: lightpink; }}
-        .fiscalizacao {{ background: lightgrey; }}
-        .fim {{ background: red; color: white; text-align: center; }}
-        footer {{
-            text-align: center;
-            font-size: 11px;
-            color: #888;
-            margin-top: 40px;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-        }}
-      </style>
-    </head>
-    <body>
-      <header>
-        <img src="cogex.png" alt="Logo COGEX">
-        <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
-        <h2>{dados['titulo']}</h2>
-      </header>
-
-      <div class="setor"><strong>Setor:</strong> {setor_escolhido}</div>
-
-      <div class="colunas">
-        <div class="col1">
-    """
-
-    tipo_cor = {
-        "inicio": "inicio",
-        "tarefa": "tarefa",
-        "verificacao": "verificacao",
-        "publicacao": "publicacao",
-        "fiscalizacao": "fiscalizacao",
-        "fim": "fim"
-    }
-
-    for etapa in dados["etapas"]:
-        classe = tipo_cor.get(etapa["tipo"], "tarefa")
-        html_export_visual += f'<div class="box {classe}">{etapa["texto"].replace(chr(10), "<br>")}</div>\n'
-
-    html_export_visual += """
-        </div>
-        <div class="col2">
-          <h3>📘 Legenda</h3>
-          ⬤ <strong>Início</strong> – cor `lightgreen`<br>
-          ⬛ <strong>Tarefa</strong> – cor `lightblue`<br>
-          ⬛ <strong>Verificação</strong> – cor `khaki`<br>
-          ⬛ <strong>Publicação</strong> – cor `lightpink`<br>
-          ⬛ <strong>Fiscalização</strong> – cor `lightgrey`<br>
-          ⬤ <strong>Fim</strong> – cor `red`<br>
-
-          <hr>
-          <h3>⚖️ Base Legal</h3>
-          """ + dados.get("base_legal", "Não informada") + """
-        </div>
-      </div>
-
-      <footer>
-        Exportado automaticamente por AppPy-Cogex © - """ + datetime.now().strftime("%d/%m/%Y %H:%M") + """
-      </footer>
-    </body>
-    </html>
-    """
-
-    nome_html = "fluxo_visual_exportado_A4.html"
-    with open(nome_html, "w", encoding="utf-8") as f:
-        f.write(html_export_visual)
-
-    with open(nome_html, "rb") as f:
-        st.download_button("📥 Baixar HTML com layout institucional", f, file_name=nome_html, mime="text/html")
