@@ -1,40 +1,60 @@
 import streamlit as st
 import json
-from PIL import Image
 import os
+from graphviz import Digraph
+from PIL import Image
 
-st.set_page_config(page_title="Fluxograma COGEX BPMN", layout="wide")
+st.set_page_config(page_title="Fluxo BPMN COGEX", layout="wide")
 
 # Cabeçalho
-st.markdown("## Corregedoria do Foro Extrajudicial")
+st.markdown("### Corregedoria do Foro Extrajudicial")
 st.markdown("##### Sistema de Modelagem de Processos - COGEX")
+
 if os.path.exists("cogex.png"):
-    st.image("cogex.png", width=40)
+    st.image(Image.open("cogex.png"), width=40)
 
 st.markdown("---")
 
-# Carregar dados do fluxo2.json
+# Carregar JSON
 with open("fluxo2.json", encoding='utf-8') as f:
     dados = json.load(f)
 
-# Layout triplo
-col_legenda, col_fluxo, col_base = st.columns([2, 6, 2])
+st.subheader(f"📌 {dados['titulo']}")
+st.markdown(f"#### {dados['subtitulo']}")
 
-# Legenda
-with col_legenda:
+col1, col2 = st.columns([3, 1])
+
+# Renderizador BPMN por código
+with col1:
+    fluxo = Digraph('Fluxograma', format='png')
+    fluxo.attr(rankdir='TB', size='8,10', nodesep='0.5')
+
+    estilo_map = {
+        "inicio":     {"shape": "circle", "style": "filled", "fillcolor": "lightgreen"},
+        "tarefa":     {"shape": "box", "style": "rounded,filled", "fillcolor": "lightblue"},
+        "verificacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "khaki"},
+        "publicacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightpink"},
+        "fiscalizacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightgrey"},
+        "fim":        {"shape": "doublecircle", "style": "filled", "fillcolor": "red"}
+    }
+
+    for etapa in dados["etapas"]:
+        estilo = estilo_map.get(etapa["tipo"], {})
+        fluxo.node(etapa["id"], etapa["texto"], **estilo)
+
+    for origem, destino in dados["conexoes"]:
+        fluxo.edge(origem, destino)
+
+    st.graphviz_chart(fluxo)
+
+# Legenda + Base Legal
+with col2:
     st.subheader("📘 Legenda")
-    for item in dados.get("legenda", []):
-        st.markdown(f"- {item}")
+    for tipo, estilo in estilo_map.items():
+        cor = estilo['fillcolor']
+        simbolo = "⬤" if "circle" in estilo["shape"] else "⬛"
+        st.markdown(f"{simbolo} **{tipo.capitalize()}** – cor `{cor}`")
 
-# Imagem do fluxograma
-with col_fluxo:
-    st.subheader(f"📌 {dados.get('titulo', '')}")
-    st.markdown(f"##### {dados.get('subtitulo', '')}")
-    st.image("fluxograma_cogex.png", use_column_width=True)
-
-# Base legal
-with col_base:
+    st.markdown("---")
     st.subheader("⚖️ Base Legal")
-    st.markdown(dados.get("base_legal", ""))
-    st.markdown("✅ Provimento nº 33/2024 – CGJ/MA")
-
+    st.markdown(dados["base_legal"])
