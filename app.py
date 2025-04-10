@@ -181,7 +181,24 @@ try:
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
 
-# === Exportação visual para A4 retrato/paisagem ===
+# === Geração da imagem base64 para exportação ===
+
+# === Gerar imagem base64 do fluxograma para exportação ===
+fluxo_export = Digraph('Export', format='png')
+fluxo_export.attr(rankdir='TB', size='8,10', nodesep='0.5')
+
+for etapa in dados["etapas"]:
+    estilo = estilo_map.get(etapa["tipo"], {})
+    fluxo_export.node(etapa["id"], etapa["texto"], **estilo)
+
+for origem, destino in dados["conexoes"]:
+    fluxo_export.edge(origem, destino)
+
+img_bytes = fluxo_export.pipe(format="png")
+img_b64 = base64.b64encode(img_bytes).decode()
+
+
+# === Exportação visual A4 com layout ===
 
 import streamlit.components.v1 as components
 
