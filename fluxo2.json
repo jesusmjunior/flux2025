@@ -3,12 +3,20 @@
   "subtitulo": "Atualização Normativa Institucional (Provimento nº 33/2024)",
   "base_legal": "Provimento nº 16/2022 + CNJ + Temas STJ/STF 1.067 e 1.144",
   "legenda": [
-    "🟢 Início do Processo",
-    "📄 Etapa de Estudo e Redação",
-    "🔍 Análise de Conformidade",
-    "📢 Publicação Oficial",
-    "🛡️ Fiscalização e Acompanhamento",
-    "🔴 Encerramento"
+    "🟢 Início do Processo (Evento Inicial - BPMN)",
+    "📄 Atividade (Tarefa Padrão)",
+    "🔍 Verificação e Análise",
+    "📢 Publicação de Norma",
+    "🛡️ Supervisão e Controle",
+    "🔴 Fim do Processo (Evento Final)"
   ],
-  "desenho": "🟢 Início ➡️ 📄 Iniciar Estudo Interno ➡️ 📄 Redigir Minuta de Norma ➡️ 🔍 Analisar Conformidade ➡️ 📢 Publicar Provimento 33/2024 ➡️ 🛡️ Fiscalizar Cumprimento ➡️ 🔴 Encerramento"
+  "desenho": [
+    "🟢 Início",
+    "📄 Iniciar Estudo Interno - Identificar lacunas, Relatórios, Provimentos",
+    "📄 Redigir Minuta de Norma - Seção XIV, Prov. 16/22, Padrões COGEX",
+    "🔍 Analisar Conformidade - CNJ, Jurisprudência STJ/STF",
+    "📢 Publicar Provimento nº 33/2024 - DJE, Site, Notificações",
+    "🛡️ Executar Fiscalização - Cumprimento, Medidas disciplinares",
+    "🔴 Encerramento"
+  ]
 }
