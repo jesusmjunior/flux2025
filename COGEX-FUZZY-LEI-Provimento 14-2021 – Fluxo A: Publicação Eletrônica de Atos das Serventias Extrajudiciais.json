@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 14-2021 – Fluxo A: Publicação Eletrônica de Atos das Serventias Extrajudiciais",
+  "setor": "Coordenadoria de Tabelionatos",
+  "base_legal": "Provimento nº 14, de 2021 + Lei nº 6.015/1973 + Lei nº 8.935/1994 + Provimento CGJ nº 37/2019. Altera dispositivo do Provimento nº 37/2019 da CGJ-MA para aprimorar os critérios e formatos de publicação eletrônica de atos e editais das serventias extrajudiciais, garantindo maior publicidade e segurança jurídica. Adequar as serventias ao novo formato de publicação digital de atos oficiais, em portais específicos, com padronização de layout, conteúdo e periodicidade.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 14/2021"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Adequação à Plataforma de Publicação\n- Portal Registro Civil / DJE\n- Infraestrutura digital habilitada"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Formatação dos Atos\n- Modelos padronizados\n- Linguagem jurídica clara"
+    },
+    {
+      "id": "t3",
+      "tipo": "publicacao",
+      "texto": "3. Publicação Digital\n- Upload periódico\n- Carimbo de tempo"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Armazenamento e Acesso\n- Arquivamento digital\n- Link público auditável"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalização da Publicidade\n- Inspeções regulares\n- Penalidades por descumprimento"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Segurança jurídica e transparência fortalecidas"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
