@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 51-2022 – Fluxo A: Transferência Eletrônica de Veículos",
+  "setor": "Núcleo de Registro Notarial",
+  "base_legal": "Provimento nº 51, de 17 de novembro de 2022 + Código de Trânsito Brasileiro (CTB), Resolução CONTRAN nº 809/2020, Provimentos CNJ. Regulamenta a cooperação entre serventias extrajudiciais e o DETRAN-MA para fins de efetivação da transferência eletrônica de veículos.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 51/2022 + celebração do convênio com o DETRAN-MA"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Celebração e Homologação do Convênio\n- Termo de cooperação técnica\n- Publicação no DJE"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Adequação dos Sistemas Cartorários\n- Integração com o DETRAN\n- Módulo eletrônico de lavratura"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Capacitação Técnica\n- Curso sobre transferência eletrônica\n- Parceria: DETRAN-MA + COGEX"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Início da Operacionalização\n- Lavratura eletrônica\n- Comunicação automática ao DETRAN"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Monitoramento e Avaliação\n- Relatórios de desempenho\n- Adesão das serventias"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Modernização do serviço com integração DETRAN-MA"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
