@@ -6,32 +6,50 @@ from PIL import Image
 
 st.set_page_config(page_title="COGEX – Modelagem de Processos", layout="wide")
 
-# === Cabeçalho Institucional ===
+# === SETORES OFICIAIS DA COGEX ===
+setores_cogex = [
+    "Gabinete dos Juízes Corregedores",
+    "Núcleo de Registro Civil",
+    "Núcleo de Atos",
+    "Diretoria do COGEX",
+    "Chefe de Gabinete dos Juízes Corregedores",
+    "Assessoria Jurídica",
+    "Coordenadoria de Serventias Extrajudiciais",
+    "Coordenadoria de Reclamações e Processos Disciplinares",
+    "Coordenadoria Administrativa",
+    "Coordenadoria de Inspeções",
+    "Coordenadoria de Análise de Contas"
+]
+
+# === Cabeçalho com logotipo aumentado ===
 col_logo, col_texto = st.columns([1, 9])
 with col_logo:
     if os.path.exists("cogex.png"):
-        st.image(Image.open("cogex.png"), width=120)
+        st.image(Image.open("cogex.png"), width=180)
 with col_texto:
     st.markdown("### **COGEX - CORREGEDORIA DO FORO EXTRAJUDICIAL DO ESTADO DO MARANHÃO**")
     st.markdown("##### Sistema de Modelagem de Processos")
 
 st.markdown("---")
 
-# === Dropdown de seleção de fluxo ===
+# === Dropdown para seleção de JSON ===
 arquivos_fluxo = [f for f in os.listdir() if f.startswith("fluxo") and f.endswith(".json")]
 fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
 
-# === Carregamento seguro do fluxo ===
+# === Carregar JSON ===
 try:
     with open(fluxo_selecionado, encoding='utf-8') as f:
         dados = json.load(f)
 
     st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
-    st.markdown(f"**🏛️ Setor:** {dados.get('setor', 'Setor não informado')}")
+
+    setor_atual = dados.get("setor", "Não informado")
+    setor_valido = setor_atual if setor_atual in setores_cogex else "❗ Setor fora do padrão oficial"
+    st.markdown(f"**🏛️ Setor:** `{setor_valido}`")
 
     col1, col2 = st.columns([3, 1])
 
-    # === Fluxograma por código ===
+    # === Renderizar Fluxograma ===
     with col1:
         fluxo = Digraph('Fluxograma', format='png')
         fluxo.attr(rankdir='TB', size='8,10', nodesep='0.5')
@@ -52,10 +70,9 @@ try:
         for origem, destino in dados["conexoes"]:
             fluxo.edge(origem, destino)
 
-        # Mostra o fluxo na interface (sem render externo)
         st.graphviz_chart(fluxo)
 
-    # === Legenda + Base Legal ===
+    # === Legenda e Base Legal ===
     with col2:
         st.subheader("📘 Legenda")
         for tipo, estilo in estilo_map.items():
