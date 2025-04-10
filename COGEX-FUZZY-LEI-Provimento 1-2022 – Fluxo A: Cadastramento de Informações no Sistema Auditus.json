@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 1-2022 – Fluxo A: Cadastramento de Informações no Sistema Auditus",
+  "setor": "Coordenadoria Financeira e de Arrecadação",
+  "base_legal": "Provimento nº 1, de 2022 + Lei nº 6.015/1973 + Provimento CNJ nº 88/2019 + Resolução CNJ nº 389/2021. Dispõe sobre o cadastramento de informações no sistema Auditus referentes à arrecadação da cota destinada ao Fundo Especial do Registro Civil – FERC.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 1/2022"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Capacitação sobre o Sistema Auditus\n- Treinamentos e webinários\n- Manual e vídeos explicativos"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Lançamento das Informações Mensais\n- Dados de arrecadação\n- Recolhimentos ao FERC"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Anexação dos Comprovantes\n- Upload de extratos e relatórios\n- Verificação de compatibilidade"
+    },
+    {
+      "id": "t4",
+      "tipo": "verificacao",
+      "texto": "4. Análise pela COGEX\n- Conferência dos dados\n- Aprovação ou exigência"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Aplicação de Penalidades\n- Intimação e PAD\n- Comunicação ao FED"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Conformidade financeira e integração com auditoria"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
