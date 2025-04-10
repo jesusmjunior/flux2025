@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 22-2024 – Fluxo A: Transparência e Critérios Técnicos na Designação de Interinos",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Provimento nº 22/2024 + Provimento nº 2/2024 + Resolução CNJ nº 80/2009. Altera os critérios de designação de interinos, reforçando a transparência, publicidade e critérios técnicos na escolha.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 22/2024 e vinculação ao Provimento nº 2/2024"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Revisão dos Critérios de Designação\n- Reavaliação normativa\n- Aprovação do novo rol técnico e impessoal"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Atualização de Documentos Institucionais\n- Reformulação de formulários\n- Manual interno de designações"},
+    
+    {"id": "t3", "tipo": "publicacao", "texto": "3. Publicidade Ativa dos Critérios\n- Divulgação dos critérios e rankings\n- Portal TJMA + DJE + Transparência"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Monitoramento das Novas Designações\n- Relatórios semestrais\n- Sistema de controle de interinos"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Processo técnico, auditável e público consolidado"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
