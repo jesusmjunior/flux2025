@@ -1,0 +1,18 @@
+{
+  "titulo": "Fluxo B – Apoio Logístico às Serventias",
+  "setor": "Coordenadoria Administrativa",
+  "base_legal": "Art. 27 – Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Apoiar Serventias\n- Atender solicitações\n- Encaminhar insumos"},
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Verificação Operacional\n- Acompanhar serviços\n- Orientar responsáveis"},
+    {"id": "t3", "tipo": "fiscalizacao", "texto": "3. Fiscalização de Contratos\n- Monitorar execução\n- Aplicar medidas"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "end"]
+  ]
+}
