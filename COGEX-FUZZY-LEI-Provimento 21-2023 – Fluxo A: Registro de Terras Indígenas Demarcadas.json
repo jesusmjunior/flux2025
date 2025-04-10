@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 21-2023 – Fluxo A: Registro de Terras Indígenas Demarcadas",
+  "setor": "Núcleo de Registro de Imóveis",
+  "base_legal": "Provimento nº 21, de 31 de maio de 2023 + Constituição Federal + Estatuto do Índio + diretrizes do INCRA e da Funai. Regula os procedimentos para abertura de matrícula e averbação da demarcação de terras indígenas nos cartórios de registro de imóveis.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 21-2023 + solicitação da Funai, INCRA ou comunidade indígena"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Recebimento do Pedido de Registro\n- Requerimento protocolado com documentação\n- Exigência: memorial, croqui, certidões, homologação"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Conferência Documental e Análise de Legitimidade\n- Autenticidade, sobreposição, competência\n- Saída: despacho de aceitação ou exigência"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Abertura da Matrícula e Averbação\n- Inclusão da área demarcada e averbação do processo\n- Referência à União como titular originária"},
+    
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Comunicação aos Órgãos Competentes\n- Ofício à Funai, INCRA e COGEX com cópia do registro"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Fiscalização e Monitoramento do Registro\n- Inspeção em cartórios situados em áreas indígenas\n- Checklist fundiário específico"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Garantia de direito originário e segurança jurídica"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
