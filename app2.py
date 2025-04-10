@@ -37,7 +37,7 @@ def main_application():
     render_support_elements()
 
 # ===== T(a): Configuration Tasks =====
-  def configure_app_settings():
+def configure_app_settings():
     """
     T(a): Sets up application configuration and styling
     """
@@ -47,7 +47,7 @@ def main_application():
         initial_sidebar_state="collapsed"
     )
     
-    # Paleta de cores PRETA/ESCURA
+    # Apply semantic styling with fuzzy classifiers
     st.markdown("""
         <style>
         .main {
@@ -56,36 +56,33 @@ def main_application():
             padding-top: 1.5rem;
         }
         .stApp {
-            background-color: #000000;  /* FUNDO PRETO */
+            background-color: #f9f9fc;
         }
         h1, h2, h3 {
-            color: #ffffff;  /* TEXTO BRANCO */
+            color: #2c3e50;
             font-family: 'Arial', sans-serif;
         }
         .header-container {
-            background-color: #1a1a1a;  /* CINZA ESCURO */
+            background-color: #f0f2f6;
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
-            border-left: 5px solid #4a4a4a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .node-box {
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 1rem;
-            box-shadow: 0 1px 3px rgba(255,255,255,0.08);
-            background-color: #121212;  /* FUNDO ESCURO PARA CAIXAS */
-            color: #ffffff;  /* TEXTO BRANCO */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
-        .node-inicio { background-color: #003300; border-left: 5px solid #00aa00; }
-        .node-tarefa { background-color: #001a33; border-left: 5px solid #0066cc; }
-        .node-verificacao { background-color: #333300; border-left: 5px solid #cccc00; }
-        .node-publicacao { background-color: #330000; border-left: 5px solid #cc0000; }
-        .node-fiscalizacao { background-color: #1a1a1a; border-left: 5px solid #666666; }
-        .node-fim { background-color: #330000; border-left: 5px solid #ff0000; }
+        .node-inicio { background-color: #d5f5e3; border-left: 5px solid #2ecc71; }
+        .node-tarefa { background-color: #d6eaf8; border-left: 5px solid #3498db; }
+        .node-verificacao { background-color: #fef9e7; border-left: 5px solid #f1c40f; }
+        .node-publicacao { background-color: #fdedec; border-left: 5px solid #e74c3c; }
+        .node-fiscalizacao { background-color: #f2f3f4; border-left: 5px solid #7f8c8d; }
+        .node-fim { background-color: #fadbd8; border-left: 5px solid #c0392b; }
         .cogex-btn {
-            background-color: #004080;
+            background-color: #2980b9;
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -93,53 +90,86 @@ def main_application():
             font-weight: bold;
         }
         .stButton>button {
-            background-color: #0066cc;
+            background-color: #3498db;
             color: white;
             font-weight: bold;
-            border: none;
-        }
-        .stButton>button:hover {
-            background-color: #004080;
-            color: white;
         }
         .legal-box {
-            background-color: #1a1a1a;
+            background-color: #fff;
             padding: 1rem;
             border-radius: 5px;
-            border-left: 5px solid #4a4a4a;
-            box-shadow: 0 1px 3px rgba(255,255,255,0.1);
-            color: #ffffff;
+            border-left: 5px solid #34495e;
         }
         .floating-robot {
             position: fixed;
             right: 20px;
             bottom: 20px;
-            background: #1a1a1a;
+            background: white;
             padding: 10px;
             border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(255,255,255,0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             z-index: 1000;
         }
         .speech-bubble {
             position: absolute;
             right: 80px;
             bottom: 40px;
-            background: #0066cc;
+            background: #3498db;
             color: white;
             padding: 10px;
             border-radius: 10px;
             width: 150px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(255,255,255,0.2);
+        }
+        .speech-bubble a {
+            color: white;
+            text-decoration: none;
         }
         .placa-jj {
             text-align: center;
             font-size: 12px;
             font-weight: bold;
             margin-top: 5px;
-            color: #ffffff;
+            color: #2c3e50;
         }
-        /* Restante do CSS mantido com cores escuras... */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+        .connection-diagram {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f7f7f7;
+            border-radius: 8px;
+        }
+        .fuzzy-score {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            background: #edf2f7;
+        }
+        .module-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            color: #2d3748;
+        }
+        .etapa-id {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
         </style>
     """, unsafe_allow_html=True)
 
