@@ -1,0 +1,129 @@
+{
+  "titulo": "Processos de Interinidade - Desistência",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Provimento nº 02/2024, Art. 5º",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Recebimento da Comunicação\n- Delegatário envia ofício à Coordenação\n- Via malote digital ou e-mail\n- Comunicando desistência/alteração de interinidade"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Abertura do Processo\n- Cadastrar no DIGIDOC\n- Registrar motivo (morte, renúncia, perda de delegação)"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Solicitação de Informações\n- Elaborar memorando/ofício solicitando pendências\n- Enviar para: FERJ, CPADES, Coord. Análise de Contas, Coord. de Reclamações\n- Verificar pagamentos FIRC RCPN e RTDPJ"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Comunicação ao Delegatário\n- Oficiar para manifestação\n- Solicitar inventário de bens\n- Solicitar rescisões trabalhistas\n- Solicitar ata de transmissão de acervo"
+    },
+    {
+      "id": "t5",
+      "tipo": "tarefa",
+      "texto": "5. Elaboração de Certidão\n- Certidão de conclusão ao Corregedor-Geral\n- Comunicar desistência\n- Informar existência de pendências"
+    },
+    {
+      "id": "d1",
+      "tipo": "verificacao",
+      "texto": "6. Decisão do Corregedor-Geral\n- Aguardar retorno do processo\n- Verificar decisão sobre continuidade"
+    },
+    {
+      "id": "t6",
+      "tipo": "tarefa",
+      "texto": "7. Encaminhamento da Decisão\n- Enviar ao delegatário via malote digital\n- Anexar comprovação no processo"
+    },
+    {
+      "id": "t7",
+      "tipo": "publicacao",
+      "texto": "8. Publicação do Edital\n- Expedir Edital (assinatura da coordenadora)\n- Publicar no DJE\n- Enviar a todas Serventias do Estado\n- Prazo para resposta: 5 dias após publicação"
+    },
+    {
+      "id": "t8",
+      "tipo": "verificacao",
+      "texto": "9. Análise dos Interessados\n- Receber manifestações (somente via malote digital)\n- Solicitar informações de pendências aos setores\n- Verificar conformidade com Art. 5º do Provimento nº 02/2024"
+    },
+    {
+      "id": "t9",
+      "tipo": "tarefa",
+      "texto": "10. Certidão de Conclusão\n- Comunicar ao Corregedor-Geral os interessados\n- Informar situação de cada interessado"
+    },
+    {
+      "id": "t10",
+      "tipo": "verificacao",
+      "texto": "11. Nova Decisão do Corregedor-Geral\n- Aguardar retorno do processo\n- Verificar decisão sobre designação"
+    },
+    {
+      "id": "t11",
+      "tipo": "publicacao",
+      "texto": "12. Elaboração e Publicação da Portaria\n- Elaborar Portaria conforme decisão\n- Publicar no DIGIDOC\n- Encaminhar a todos os envolvidos"
+    },
+    {
+      "id": "t12",
+      "tipo": "tarefa",
+      "texto": "13. Orientação ao Delegatário Selecionado\n- Elaborar ofício com orientações\n- Solicitar acessos (e-mail)\n- Informar sobre Termo de Posse e Exercício\n- Solicitar Ata de transmissão de acervo\n- Prazo: 5 dias"
+    },
+    {
+      "id": "t13",
+      "tipo": "tarefa",
+      "texto": "14. Concessão de Acessos\n- Encaminhar solicitação à informática\n- Solicitar acesso aos sistemas (Sentinela, Auditus, Notarium, SiaFERJ)\n- Informar ao delegatário\n- Anexar no processo"
+    },
+    {
+      "id": "t14",
+      "tipo": "tarefa",
+      "texto": "15. Atualização dos Sistemas\n- Receber Termo de Posse e Exercício\n- Atualizar Sistema Auditus\n- Atualizar Justiça Aberta - CNJ\n- Atualizar site institucional"
+    },
+    {
+      "id": "d2",
+      "tipo": "verificacao",
+      "texto": "16. Verificar Autorização de Arquivamento\n- Decisão autorizou arquivamento?"
+    },
+    {
+      "id": "t15",
+      "tipo": "tarefa",
+      "texto": "17. Certidão de Arquivamento\n- Fazer certidão de arquivamento\n- Finalizar processo"
+    },
+    {
+      "id": "t16",
+      "tipo": "tarefa",
+      "texto": "18. Certidão de Cumprimento\n- Fazer certidão de conclusão\n- Informar cumprimento da Decisão"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "d1"],
+    ["d1", "t6"],
+    ["t6", "t7"],
+    ["t7", "t8"],
+    ["t8", "t9"],
+    ["t9", "t10"],
+    ["t10", "t11"],
+    ["t11", "t12"],
+    ["t12", "t13"],
+    ["t13", "t14"],
+    ["t14", "d2"],
+    ["d2", "t15"],
+    ["d2", "t16"],
+    ["t15", "end"],
+    ["t16", "end"]
+  ]
+}
