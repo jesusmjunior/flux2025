@@ -1,0 +1,34 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Prestação de Contas SIAFERJ – Fluxo A: Análise Financeira de Interinos",
+  "setor": "Coordenadoria de Análise de Contas",
+  "base_legal": "Provimento nº 13/2024 + CNJ Portaria nº 62/2019 + LC nº 271/2024. Regulamenta o dever mensal de prestação de contas pelos interinos de serventias extrajudiciais do Maranhão via sistema SIAFERJ.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Interino lança dados mensais no sistema SIAFERJ"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Extração da DRM do SIAFERJ\n- Documento base da análise\n- Responsável: analista financeiro"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Abertura do Processo no Digidoc ou SEI\n- Dados inseridos com classificação\n- Geração de número e protocolo"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Análise Técnica das Despesas\n- Conferência de selos, FERJ e DRM\n- Apontamento de inconsistências"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Manifestação do Interino\n- Ofício com planilha e prazo de 5 dias\n- Entrega de justificativas"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Cobrança de Valores Excedentes\n- Intimação para restituição\n- FED + inscrição em dívida ativa"},
+    
+    {"id": "t6", "tipo": "verificacao", "texto": "6. Parecer Técnico e Validação Final\n- Emissão de parecer conclusivo\n- Assinatura da autoridade competente"},
+    
+    {"id": "t7", "tipo": "tarefa", "texto": "7. Encerramento e Arquivamento\n- Classificação do processo (regular / ressalva / irregular)\n- Atualização nas estatísticas COGEX"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Prestação de contas finalizada e integrada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "t7"],
+    ["t7", "end"]
+  ]
+}
