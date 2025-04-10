@@ -1,7 +1,50 @@
 {
-  "titulo": "Procedimento de Averbação de Registro",
-  "subtitulo": "Fluxo de Procedimentos Internos",
-  "base_legal": "Art. 1.234 do Código Civil, Resolução CNJ 121/2010",
-  "legenda": ["🔷 Início", "⬛ Processo", "🔴 Decisão", "⬅️ Volta", "➡️ Avanço"],
-  "desenho": "🔷 ➡️ ⬛ Registrar pedido ➡️ 🔴 Verificar pendências ➡️ ⬛ Protocolar ➡️ 🔷 Finalizar"
+  "titulo": "Processo Endógeno – Atualização Normativa (Provimento nº 33/2024)",
+  "setor": "CGJ/MA – Coordenação de Normas (COGEX)",
+  "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Iniciar Estudo Interno\n- Identificar lacunas\n- Receber relatórios\n- Levantar provimentos"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Redigir Minuta de Norma\n- Seção XIV\n- Prov. 16/22\n- Padrões COGEX"
+    },
+    {
+      "id": "t3",
+      "tipo": "verificacao",
+      "texto": "3. Analisar Conformidade\n- CNJ\n- STJ/STF"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Publicar Provimento\n- DJE\n- Notificar serventias"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalizar Execução\n- Verificar cumprimento\n- Medidas disciplinares"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
 }
