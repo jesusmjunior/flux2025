@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 22-2021 – Fluxo A: Óbito com Filhos Menores e Comunicação de Orfandade Bilateral",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 22, de 2021 + Constituição Federal + Estatuto da Criança e do Adolescente (ECA) + Lei nº 6.015/1973. Estabelece normas para elaboração do assento de óbito que envolva filhos menores de idade, exigindo a comunicação imediata da orfandade bilateral aos órgãos de proteção. Adequar os procedimentos registrais para identificar e comunicar automaticamente casos de óbito que resultem em orfandade de crianças e adolescentes.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 22/2021"
+    },
+    {
+      "id": "t1",
+      "tipo": "verificacao",
+      "texto": "1. Identificação de Filhos Menores\n- Consulta documental e declaração familiar\n- Indício de orfandade bilateral"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Elaboração do Assento com Alerta\n- Registro com nota de urgência\n- Marcação para acompanhamento"
+    },
+    {
+      "id": "t3",
+      "tipo": "publicacao",
+      "texto": "3. Comunicação Imediata aos Órgãos\n- Conselho Tutelar, MP, Vara da Infância\n- Plataforma eletrônica ou entrega física"
+    },
+    {
+      "id": "t4",
+      "tipo": "fiscalizacao",
+      "texto": "4. Acompanhamento da Rede de Proteção\n- Verificação de acolhimento\n- Articulação com CRAS e rede local"
+    },
+    {
+      "id": "t5",
+      "tipo": "tarefa",
+      "texto": "5. Relatório de Conformidade\n- Dados estatísticos e indicadores\n- Base estratégica da COGEX"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Proteção da criança órfã garantida"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
