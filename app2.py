@@ -37,17 +37,6 @@ def main_application():
     render_support_elements()
 
 # ===== T(a): Configuration Tasks =====
-def configure_app_settings():
-    """
-    T(a): Sets up application configuration and styling
-    """
-    st.set_page_config(
-        page_title="COGEX – Sistema Modular de Processos", 
-        layout="centered",
-        initial_sidebar_state="collapsed"
-    )
-    
-    # Apply semantic styling with fuzzy classifiers
   def configure_app_settings():
     """
     T(a): Sets up application configuration and styling
