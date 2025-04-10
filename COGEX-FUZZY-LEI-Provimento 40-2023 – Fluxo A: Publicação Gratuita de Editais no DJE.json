@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 40-2023 – Fluxo A: Publicação Gratuita de Editais no DJE",
+  "setor": "Coordenadoria de Inspeções",
+  "base_legal": "Provimento nº 40, de 20 de novembro de 2023 + Código de Normas da CGJ-MA + Constituição Federal + Lei nº 7.115/1983. Regula a publicação gratuita de editais no Diário da Justiça Eletrônico para pessoas pobres, promovendo acesso à justiça.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 40-2023 e solicitação por parte de pessoa hipossuficiente"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Entrega da Declaração de Hipossuficiência\n- Verificação da formalidade\n- Protocolo de admissibilidade"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise do Direito à Gratuidade\n- Isenção de custas\n- Edital classificado como gratuito"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Envio ao DJE com Isenção\n- Lançamento digital sem cobrança\n- Publicação oficial comprovada"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Monitoramento e Controle\n- Auditoria amostral\n- Relatório de conformidade"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Acesso à justiça garantido e publicação isenta finalizada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
