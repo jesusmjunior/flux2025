@@ -1,0 +1,31 @@
+{
+  "titulo": "RI-Gabinete do Corregedor – Fluxo B – Apoio Operacional e Assessoramento",
+  "setor": "Gabinete dos Juízes Corregedores",
+  "base_legal": "Art. 14 – Título II, Capítulo II, Seção I do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Atividades do Gabinete do Corregedor"},
+
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Coordenação Interna\n- Processos judiciais/extrajudiciais\n- Distribuição de expedientes"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Comunicação e Representação\n- CNJ\n- Comunicados oficiais\n- Atendimento ao público"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Gestão Operacional\n- Solicitar recursos e estrutura\n- Supervisionar limpeza, segurança, transporte"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Apoio Institucional\n- Consultas\n- Reclamações\n- Acompanhamento da agenda oficial"},
+    
+    {"id": "t5", "tipo": "publicacao", "texto": "5. Produção e Arquivamento\n- Elaboração de portarias, ofícios\n- Arquivamento de documentos"},
+    
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Logística de Autoridade\n- Diárias\n- Passagens\n- Transporte institucional"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Funções de Assessoramento Cumpridas"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
