@@ -30,74 +30,19 @@ st.markdown("""
         margin: auto;
         padding-top: 2rem;
     }
-    .floating-robot {
-        position: fixed;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        animation: floatbot 4s ease-in-out infinite;
-        z-index: 999;
-    }
-
-    @keyframes floatbot {
-        0%, 100% { transform: translateY(-50%) translateY(-20px); }
-        50% { transform: translateY(-50%) translateY(20px); }
-    }
-
-    .placa-jj {
-        background: #111;
-        color: #0ff;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0 0 10px #0ff;
-        font-family: monospace;
-    }
-    .speech-bubble {
-        position: absolute;
-        right: 80px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: white;
-        color: black;
-        padding: 10px 15px;
-        border-radius: 10px;
-        border: 2px solid #ccc;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        font-size: 12px;
-        animation: talk 6s ease-in-out infinite;
-        width: 140px;
-        text-align: center;
-    }
-
-    @keyframes talk {
-        0%, 95%, 100% { opacity: 0; }
-        10%, 85% { opacity: 1; }
-    }
-        20%, 80% { opacity: 1; }
-    }
+    </style>
 """, unsafe_allow_html=True)
 
 # === Cabeçalho institucional ===
 col_logo, col_texto = st.columns([1, 4])
 with col_logo:
     if os.path.exists("cogex.png"):
-        st.image(Image.open("cogex.png"), width=300)
+        st.image(Image.open("cogex.png"), width=200)
 with col_texto:
     st.markdown("### **COGEX - CORREGEDORIA DO FORO EXTRAJUDICIAL DO ESTADO DO MARANHÃO**")
     st.markdown("##### Sistema de Modelagem de Processos")
 
 st.divider()
-
-# === Robô Flutuante Lateral ===
-st.markdown("""
-<div class="floating-robot">
-    <div class=\"speech-bubble\"><a href=\"https://www.tjma.jus.br/site/extrajudicial\" target=\"_blank\">Acesse COGEX</a></div>
-    <img src=\"https://cdn-icons-png.flaticon.com/512/4712/4712035.png\" width="60">
-    <div class="placa-jj">JJ I.A. COGEX</div>
-</div>
-""", unsafe_allow_html=True)
 
 # === Pesquisa e seleção de fluxogramas ===
 st.markdown("### 📂 Selecione ou pesquise um fluxograma")
@@ -173,39 +118,39 @@ try:
     st.markdown("---")
     if st.button("📤 Exportar para HTML (modo A4 institucional com layout do app)"):
         tipo_cor = {key: key for key in estilo_map}
-        html_export_visual = """
+        html_export_visual = f"""
         <!DOCTYPE html>
         <html lang=\"pt-br\">
         <head>
           <meta charset=\"UTF-8\">
-          <title>{os.path.basename(fluxo_selecionado)}</title>
+          <title>{dados['titulo']}</title>
           <style>
-            body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; background: #fff; padding: 40px; color: #111; }
-            header { text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 20px; }
-            header img { width: 120px; }
-            h1 { font-size: 20px; margin: 10px 0 0 0; }
-            h2 { font-size: 18px; color: #222; }
-            .setor { background: #f3f3f3; padding: 10px; margin-bottom: 20px; border-radius: 5px; }
-            .colunas { display: flex; gap: 30px; }
-            .col1 { flex: 2; }
-            .col2 { flex: 1; font-size: 14px; }
-            .box { padding: 10px; border-radius: 5px; margin-bottom: 15px; }
-            .inicio { background: lightgreen; }
-            .tarefa { background: lightblue; }
-            .verificacao { background: khaki; }
-            .publicacao { background: lightpink; }
-            .fiscalizacao { background: lightgrey; }
-            .fim { background: red; color: white; text-align: center; }
-            footer { text-align: center; font-size: 11px; color: #888; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }
+            body {{ font-family: Arial, sans-serif; max-width: 800px; margin: auto; background: #fff; padding: 40px; color: #111; }}
+            header {{ text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 20px; }}
+            header img {{ width: 120px; }}
+            h1 {{ font-size: 20px; margin: 10px 0 0 0; }}
+            h2 {{ font-size: 18px; color: #222; }}
+            .setor {{ background: #f3f3f3; padding: 10px; margin-bottom: 20px; border-radius: 5px; }}
+            .colunas {{ display: flex; gap: 30px; }}
+            .col1 {{ flex: 2; }}
+            .col2 {{ flex: 1; font-size: 14px; }}
+            .box {{ padding: 10px; border-radius: 5px; margin-bottom: 15px; }}
+            .inicio {{ background: lightgreen; }}
+            .tarefa {{ background: lightblue; }}
+            .verificacao {{ background: khaki; }}
+            .publicacao {{ background: lightpink; }}
+            .fiscalizacao {{ background: lightgrey; }}
+            .fim {{ background: red; color: white; text-align: center; }}
+            footer {{ text-align: center; font-size: 11px; color: #888; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }}
           </style>
         </head>
         <body>
           <header>
             <img src=\"cogex.png\" alt=\"Logo COGEX\">
             <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
-            <h2>{os.path.basename(fluxo_selecionado)}</h2>
+            <h2>{dados['titulo']}</h2>
           </header>
-          <div class=\"setor\"><strong>Arquivo:</strong> {os.path.basename(fluxo_selecionado)}</div>
+          <div class=\"setor\"><strong>Setor:</strong> {setor_escolhido}</div>
           <div class=\"colunas\">
             <div class=\"col1\">
         """
