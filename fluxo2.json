@@ -1,99 +1,68 @@
 {
-    "titulo": "Processo Endógeno – Atualização Normativa Institucional",
-    "setor": "Coordenadoria de Serventias Extrajudiciais",
-    "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
-    "etapas": [
-        {"id": "start", "tipo": "inicio", "texto": "Início"},
-        {"id": "t1", "tipo": "tarefa", "texto": "1. Estudo Interno\n- Identificar lacunas\n- Analisar relatórios\n- Levantar normas"},
-        {"id": "t2", "tipo": "tarefa", "texto": "2. Redigir Minuta\n- Criar Seção XIV\n- Referenciar Prov. 16/22"},
-        {"id": "t3", "tipo": "verificacao", "texto": "3. Análise de Conformidade\n- CNJ\n- STJ/STF"},
-        {"id": "t4", "tipo": "publicacao", "texto": "4. Publicação Oficial\n- DJE\n- Notificação às serventias"},
-        {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Fiscalização\n- Verificar cumprimento\n- Aplicar medidas"},
-        {"id": "end", "tipo": "fim", "texto": "Encerramento"}
+  "titulo": "Processo Endógeno – Atualização Normativa Institucional",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Provimento nº 16/2022 + Resoluções CNJ + Temas STJ/STF 1.067 e 1.144",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Estudo Interno\n- Identificar lacunas\n- Analisar relatórios\n- Levantar normas"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Redigir Minuta\n- Criar Seção XIV\n- Referenciar Prov. 16/22"
+    },
+    {
+      "id": "t3",
+      "tipo": "verificacao",
+      "texto": "3. Análise de Conformidade\n- CNJ\n- STJ/STF"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Publicação Oficial\n- DJE\n- Notificação às serventias"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalização\n- Verificar cumprimento\n- Aplicar medidas"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento"
+    }
+  ],
+  "conexoes": [
+    [
+      "start",
+      "t1"
     ],
-    "conexoes": [
-        ["start", "t1"],
-        ["t1", "t2"],
-        ["t2", "t3"],
-        ["t3", "t4"],
-        ["t4", "t5"],
-        ["t5", "end"]
+    [
+      "t1",
+      "t2"
+    ],
+    [
+      "t2",
+      "t3"
+    ],
+    [
+      "t3",
+      "t4"
+    ],
+    [
+      "t4",
+      "t5"
+    ],
+    [
+      "t5",
+      "end"
     ]
+  ]
 }
-
-# Salvar JSON atualizado
-fluxo2_path = "/mnt/data/fluxo2.json"
-with open(fluxo2_path, "w", encoding="utf-8") as f:
-    json.dump(fluxo2_web_ready, f, indent=2, ensure_ascii=False)
-
-# HTML com layout estilo web widescreen A4 (80%) e logo
-html_export = f"""
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>{fluxo2_web_ready['titulo']}</title>
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 40px;
-            background: #f4f4f4;
-            color: #111;
-        }}
-        .container {{
-            width: 80%;
-            max-width: 1280px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }}
-        .header {{
-            text-align: center;
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 30px;
-        }}
-        .header h1 {{
-            margin: 0;
-        }}
-        .header h3 {{
-            color: #444;
-        }}
-        .fluxograma-img {{
-            display: block;
-            margin: 30px auto;
-            width: 80%;
-            max-width: 1000px;
-        }}
-        footer {{
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #666;
-        }}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="cogex.png" alt="COGEX" width="100">
-            <h1>COGEX - Corregedoria do Foro Extrajudicial</h1>
-            <h3>{fluxo2_web_ready['titulo']}</h3>
-            <p><strong>Setor:</strong> {fluxo2_web_ready['setor']}</p>
-            <p><strong>Base Legal:</strong> {fluxo2_web_ready['base_legal']}</p>
-        </div>
-        <img class="fluxograma-img" src="fluxograma_institucional.png" alt="Fluxograma">
-        <footer>
-            Documento gerado automaticamente por AppPy-Cogex ©
-        </footer>
-    </div>
-</body>
-</html>
-"""
-
-html_path = "/mnt/data/fluxo2_exportado_layout.html"
-with open(html_path, "w", encoding="utf-8") as f:
-    f.write(html_export)
-
-fluxo2_path, html_path
