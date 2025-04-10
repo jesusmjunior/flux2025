@@ -1,0 +1,25 @@
+{
+  "titulo": "RI-Coordenadoria de Análise de Contas-Fluxo B – Patrimônio, Viabilidade e Fiscalização Contábil",
+  "setor": "Coordenadoria de Análise de Contas",
+  "base_legal": "Art. 34 e 35 – Título II, Capítulo VI, Seção IV do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Solicitação ou ciclo fiscal iniciado"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Controle de Contratos e Bens\n- Imóveis e locações\n- Encaminhamento para tombamento"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise de Viabilidade Financeira\n- Autorização de despesas\n- Situação dos interinos(as)"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Escrituração e Notificação\n- Livro diário auxiliar\n- Alertas e PADs por omissão"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Certidões Trimestrais\n- Regularidade fiscal e previdenciária"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Situação contábil registrada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
