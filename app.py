@@ -179,3 +179,131 @@ try:
 
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
+    # === Botão de exportação HTML final (visual real do app) ===
+st.markdown("---")
+if st.button("📤 Exportar para HTML (modo A4 institucional com fluxograma real)"):
+    html_export_visual = f"""
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <title>{dados['titulo']}</title>
+      <style>
+        body {{
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            color: #111;
+        }}
+        header {{
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }}
+        header img {{
+            width: 120px;
+        }}
+        h1 {{
+            font-size: 20px;
+            margin: 10px 0 0 0;
+        }}
+        h2 {{
+            font-size: 18px;
+            color: #222;
+        }}
+        .setor {{
+            background: #f3f3f3;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }}
+        .colunas {{
+            display: flex;
+            gap: 30px;
+        }}
+        .col1 {{
+            flex: 2;
+        }}
+        .col2 {{
+            flex: 1;
+            font-size: 14px;
+        }}
+        .box {{
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }}
+        .inicio {{ background: lightgreen; }}
+        .tarefa {{ background: lightblue; }}
+        .verificacao {{ background: khaki; }}
+        .publicacao {{ background: lightpink; }}
+        .fiscalizacao {{ background: lightgrey; }}
+        .fim {{ background: red; color: white; text-align: center; }}
+        footer {{
+            text-align: center;
+            font-size: 11px;
+            color: #888;
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }}
+      </style>
+    </head>
+    <body>
+      <header>
+        <img src="cogex.png" alt="Logo COGEX">
+        <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
+        <h2>{dados['titulo']}</h2>
+      </header>
+
+      <div class="setor"><strong>Setor:</strong> {setor_escolhido}</div>
+
+      <div class="colunas">
+        <div class="col1">
+    """
+
+    tipo_cor = {
+        "inicio": "inicio",
+        "tarefa": "tarefa",
+        "verificacao": "verificacao",
+        "publicacao": "publicacao",
+        "fiscalizacao": "fiscalizacao",
+        "fim": "fim"
+    }
+
+    for etapa in dados["etapas"]:
+        classe = tipo_cor.get(etapa["tipo"], "tarefa")
+        html_export_visual += f'<div class="box {classe}">{etapa["texto"].replace(chr(10), "<br>")}</div>\n'
+
+    html_export_visual += """
+        </div>
+        <div class="col2">
+          <h3>📘 Legenda</h3>
+          ⬤ <strong>Início</strong> – cor `lightgreen`<br>
+          ⬛ <strong>Tarefa</strong> – cor `lightblue`<br>
+          ⬛ <strong>Verificação</strong> – cor `khaki`<br>
+          ⬛ <strong>Publicação</strong> – cor `lightpink`<br>
+          ⬛ <strong>Fiscalização</strong> – cor `lightgrey`<br>
+          ⬤ <strong>Fim</strong> – cor `red`<br>
+
+          <hr>
+          <h3>⚖️ Base Legal</h3>
+          """ + dados.get("base_legal", "Não informada") + """
+        </div>
+      </div>
+
+      <footer>
+        Exportado automaticamente por AppPy-Cogex © - """ + datetime.now().strftime("%d/%m/%Y %H:%M") + """
+      </footer>
+    </body>
+    </html>
+    """
+
+    nome_html = "fluxo_visual_exportado_A4.html"
+    with open(nome_html, "w", encoding="utf-8") as f:
+        f.write(html_export_visual)
+
+    with open(nome_html, "rb") as f:
+        st.download_button("📥 Baixar HTML com layout institucional", f, file_name=nome_html, mime="text/html")
