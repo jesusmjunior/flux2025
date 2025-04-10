@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 41-2022 – Fluxo A: Reorganização do Núcleo de Aprimoramento Extrajudicial (NAE)",
+  "setor": "Gabinete dos Juízes Corregedores",
+  "base_legal": "Provimento nº 41, de 19 de setembro de 2022 + Provimento nº 06/2016-CGJ-MA + Constituição Federal + LC nº 271/2024. Reorganiza a composição, funcionamento e atribuições do Núcleo de Aprimoramento Extrajudicial – NAE, com foco em qualificação contínua e inovação na prestação de serviços cartorários.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do provimento com nova diretriz funcional do NAE"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Nomeação dos Integrantes\n- Designação via portaria\n- Critérios de multidisciplinaridade"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Revisão Regimental\n- Atualização do regimento interno\n- Homologação normativa"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Planejamento de Ações\n- Elaboração do plano anual\n- Definição de frentes prioritárias"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Integração com a Governança\n- Participação nas decisões estratégicas\n- Voto consultivo e relatórios intersetoriais"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Avaliação de Entregas\n- Relatório semestral de impacto\n- Monitoramento dos indicadores"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – NAE como polo permanente de inovação da COGEX"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
