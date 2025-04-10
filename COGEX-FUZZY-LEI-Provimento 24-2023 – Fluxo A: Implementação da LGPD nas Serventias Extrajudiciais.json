@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 24-2023 – Fluxo A: Implementação da LGPD nas Serventias Extrajudiciais",
+  "setor": "Núcleo de Proteção de Dados",
+  "base_legal": "Provimento nº 24, de 22 de junho de 2023 + Provimento-CGJMA nº 64/2020 + Lei nº 13.709/2018 (LGPD). Estabelece diretrizes para adequação das serventias extrajudiciais à Lei Geral de Proteção de Dados Pessoais (LGPD).",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 24-2023 + Vigência em 30 dias"},
+    
+    {"id": "t1", "tipo": "verificacao", "texto": "1. Diagnóstico de Conformidade\n- Checklist baseado nos arts. 7º, 11 e 23 da LGPD\n- Grau de maturidade das serventias"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Emissão de Guia de Implementação\n- Cartilha com boas práticas e modelos\n- Guia distribuído às serventias"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Treinamento e Certificação Interna\n- Curso com avaliação\n- Certificado de conformidade LGPD"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Fiscalização Ordinária da Conformidade\n- Verificação presencial e digital\n- Relatório com grau de conformidade"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Serventias adaptadas à LGPD com controle permanente"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
