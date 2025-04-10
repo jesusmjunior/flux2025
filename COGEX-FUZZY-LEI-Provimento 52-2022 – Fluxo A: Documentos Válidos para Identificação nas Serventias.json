@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 52-2022 – Fluxo A: Documentos Válidos para Identificação nas Serventias",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 52, de 24 de novembro de 2022 + Código de Normas da CGJ-MA – § 5º do art. 333. Altera o § 5º do art. 333 do Código de Normas da CGJ-MA, especificando os documentos válidos para identificação civil nas serventias extrajudiciais.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 52/2022 e entrada em vigor da nova redação"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Listagem de Documentos Aceitos\n- Cartilha com documentos válidos: RG, CNH, passaporte, etc."},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Orientação Formal aos Oficiais\n- Circular explicativa e comunicado oficial\n- DJE, portal COGEX"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Verificação em Atos Cartoriais\n- Inclusão em treinamentos e checklists\n- Aplicação direta na prática cartorial"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Fiscalização da Aplicação da Nova Lista\n- Inspeções remotas e presenciais\n- Checklist atualizado"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Padronização e segurança na identificação civil nas serventias"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
