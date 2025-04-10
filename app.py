@@ -7,21 +7,7 @@ from datetime import datetime
 
 st.set_page_config(page_title="COGEX – Modelagem de Processos", layout="centered")
 
-# ================================
-# LOGIN SIMPLES
-# ================================
-def login():
-    st.title("🔐 Área Protegida - Login Obrigatório")
-    user = st.text_input("Usuário (Nome)")
-    password = st.text_input("Senha", type="password")
 
-    if (user == "COGEX" and password == "CGX"):
-        st.success("Login efetuado com sucesso ✅")
-        return True
-    else:
-        if user and password:
-            st.error("Usuário ou senha incorretos ❌")
-        return False
 # === Lista de setores da COGEX ===
 setores_cogex = [
     "Gabinete dos Juízes Corregedores",
@@ -207,7 +193,7 @@ except Exception as e:
     # === Robô Flutuante Lateral ===
 st.markdown("""
 <div class="floating-robot">
-    <div class=\"speech-bubble\"><a href=\"https://www.tjma.jus.br/site/extrajudicial\" target=\"_blank\">Acesse COGEX</a></div>
+    <div class=\"speech-bubble\"><a href=\"https://www.tjma.jus.br/atos/extrajudicial/geral/0/5657/pnao/provimentos-cogex" target=\"_blank\">Acesse COGEX</a></div>
     <img src=\"https://cdn-icons-png.flaticon.com/512/4712/4712035.png\" width="60">
     <div class="placa-jj">JJ I.A. COGEX</div>
 </div>
