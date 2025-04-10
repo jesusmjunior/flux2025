@@ -1,0 +1,31 @@
+{
+  "titulo": "RI-Gabinete do Corregedor – Fluxo A – Atribuições Estratégicas e Decisórias",
+  "setor": "Gabinete dos Juízes Corregedores",
+  "base_legal": "Art. 4º ao 11 – Capítulo II do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Corregedor-Geral empossado"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Atuação Central\n- Gestão da COGEX\n- Coordenação de setores\n- Substituição e auxílio por juízes"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Expedição de Atos\n- Ordem de serviço\n- Decisões e portarias\n- Provimentos e circulares"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Apreciação de Demandas\n- Representações\n- Reclamações\n- Recursos administrativos"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Poder Disciplinar\n- Aplicar penas\n- Designar interinos\n- Instauração de processos"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Atos Normativos e Estratégicos\n- Reformar RI\n- Propor tabelas de plantão\n- Nomear cargos"},
+    
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Fiscalização Permanente\n- Inspeções\n- Acompanhamento do serviço extrajudicial"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Poder Correcional Exercido"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
