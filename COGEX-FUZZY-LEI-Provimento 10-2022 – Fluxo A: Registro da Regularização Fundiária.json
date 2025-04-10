@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 10-2022 – Fluxo A: Registro da Regularização Fundiária",
+  "setor": "Coordenadoria de Regularização Fundiária",
+  "base_legal": "Provimento nº 10, de 2022 + Lei nº 13.465/2017 + Lei nº 6.015/1973 + Código de Normas da CGJ-MA. Estabelece diretrizes e normas para o registro dos atos de regularização fundiária urbana e rural no Estado do Maranhão, promovendo padronização e celeridade nos procedimentos.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 10/2022"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Protocolo do Projeto de Regularização\n- Memorial descritivo\n- Planta, CRF/INSS, aprovação da REURB"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Análise Técnica e Jurídica\n- Checklist fundiário\n- Parecer normativo"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Registro da Regularização\n- Matrícula matriz\n- Registros coletivos ou individuais"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Comunicação aos Órgãos Públicos\n- Municípios\n- MP e órgãos ambientais"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalização e Monitoramento\n- Verificação dos registros fundiários\n- Relatórios periódicos"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Segurança jurídica e inclusão fundiária"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
