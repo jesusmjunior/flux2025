@@ -109,3 +109,100 @@ body {{
 </html>
     '''
     st.download_button("📥 Baixar HTML estilo A4", data=html_export, file_name="fluxo_visual.html", mime="text/html")
+
+
+# === Exportação visual com imagem incorporada (HTML completo) ===
+from graphviz import Digraph
+import base64
+
+if st.button("📤 Exportar layout completo com imagem"):
+    fluxo_export = Digraph("Export")
+    fluxo_export.attr(rankdir="TB", size="8,10", nodesep="0.5")
+
+    for etapa in dados["etapas"]:
+        estilo = estilo_map.get(etapa["tipo"], {})
+        fluxo_export.node(etapa["id"], etapa["texto"], **estilo)
+
+    for origem, destino in dados["conexoes"]:
+        fluxo_export.edge(origem, destino)
+
+    img_bytes = fluxo_export.pipe(format="png")
+    img_b64 = base64.b64encode(img_bytes).decode()
+
+    html_template = '''
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <title>Fluxograma COGEX</title>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+        }
+        .header {
+            text-align: center;
+        }
+        .header img {
+            height: 80px;
+        }
+        .fluxo-img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #888;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="header">
+        <img src="https://raw.githubusercontent.com/streamlit/streamlit-example/master/static/favicon.png">
+        <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
+        <h2>{titulo}</h2>
+        <p><strong>Setor:</strong> {setor}</p>
+      </div>
+
+      <img src="data:image/png;base64,{imagem}" class="fluxo-img">
+
+      <div class="section">
+        <h3>📘 Legenda</h3>
+        ⬤ Início – lightgreen<br>
+        ⬛ Tarefa – lightblue<br>
+        ⬛ Verificação – khaki<br>
+        ⬛ Publicação – lightpink<br>
+        ⬛ Fiscalização – lightgrey<br>
+        ⬤ Fim – red
+      </div>
+
+      <div class="section">
+        <h3>⚖️ Base Legal</h3>
+        {base_legal}
+      </div>
+
+      <footer>
+        Sistema de Modelagem de Processos – COGEX/TJMA
+      </footer>
+    </body>
+    </html>
+    '''.replace("{imagem}", img_b64)       .replace("{titulo}", dados.get("titulo", ""))       .replace("{setor}", setor_escolhido)       .replace("{base_legal}", dados.get("base_legal", ""))
+
+    with open("fluxograma_layout_completo.html", "w", encoding="utf-8") as f:
+        f.write(html_template)
+
+    with open("fluxograma_layout_completo.html", "rb") as f:
+        st.download_button("📥 Baixar HTML com imagem completa", f, file_name="fluxograma_layout_completo.html", mime="text/html")
