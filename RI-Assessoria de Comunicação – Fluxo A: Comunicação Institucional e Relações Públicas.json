@@ -1,0 +1,31 @@
+{
+  "titulo": "RI-Assessoria de Comunicação – Fluxo A – Comunicação Institucional e Relações Públicas",
+  "setor": "Assessoria Jurídica",
+  "base_legal": "Art. 15 e 16 – Título II, Capítulo II, Seção II do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Ativação da Comunicação Institucional"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Produção de Conteúdo\n- Matérias jornalísticas\n- Apoio à imprensa\n- Agenda pública"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Publicação Multicanal\n- Portal da COGEX\n- Redes sociais\n- TV, rádio, jornal, internet"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Atendimento à Imprensa\n- Agendamento\n- Suporte ao relacionamento institucional"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Acompanhamento de Eventos\n- Divulgação\n- Cobertura\n- Articulação com gabinete"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Comunicação Interna\n- Portal interno\n- Circulares e informes\n- Suporte à Secretaria Geral"},
+    
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Atualização e Monitoramento\n- Controle de conteúdo digital\n- Acervo e relatórios"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Divulgação institucional consolidada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
