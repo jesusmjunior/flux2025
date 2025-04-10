@@ -1,0 +1,25 @@
+{
+  "titulo": "RI-Coordenadoria de Serventias Extrajudiciais-Fluxo B – Fiscalização, Providências e Inspeções",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Art. 32, incisos XV a XXI – Título II, Capítulo VI, Seção II do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Recebimento de demandas de fiscalização"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Pedido de Providência\n- Registro e análise\n- Comunicação ao Corregedor"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Ações Correcionais\n- Notificações\n- Apoio às inspeções"},
+    
+    {"id": "t3", "tipo": "fiscalizacao", "texto": "3. Monitoramento das Serventias\n- Cumprimento de normas\n- Informações do FERJ e Controle Interno"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Relatórios Estatísticos\n- Análise de dados\n- Tempo médio de processos"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Providências executadas e registros arquivados"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
