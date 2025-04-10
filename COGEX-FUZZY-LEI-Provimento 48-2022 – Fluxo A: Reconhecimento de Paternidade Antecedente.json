@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 48-2022 – Fluxo A: Reconhecimento de Paternidade Antecedente",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 48, de 20 de outubro de 2022 + Constituição Federal + Código Civil + Lei nº 8.560/1992 + Lei nº 6.015/1973. Institui o procedimento simplificado para reconhecimento de paternidade antes do nascimento ou após o registro, com foco na proteção do vínculo familiar.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 48/2022 e solicitação de reconhecimento"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Formalização do Pedido\n- Genitor apresenta documentação e declaração\n- Mãe concorda (se menor)"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Análise da Manifestação de Vontade\n- Verificação da livre vontade\n- Ausência de vícios"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Lavratura do Termo e Averbação\n- Registro no sistema\n- Atualização automática na certidão"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Isenção de Custas e Encaminhamentos\n- Gratuidade aplicada\n- Encaminhamento à Defensoria/CRAS"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Monitoramento e Prevenção\n- Fiscalização amostral\n- Análise de conformidade"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Garantia da filiação e dignidade via registro extrajudicial"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
