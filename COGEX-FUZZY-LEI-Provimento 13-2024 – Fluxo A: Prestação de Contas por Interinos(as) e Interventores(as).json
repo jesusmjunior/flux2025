@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 13-2024 – Fluxo A: Prestação de Contas por Interinos(as) e Interventores(as)",
+  "setor": "Coordenadoria de Análise de Contas",
+  "base_legal": "Provimento nº 13/2024 + LC nº 271/2024 + Código de Normas + CNJ Portaria nº 62/2019",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Nomeação de interino/interventor por vacância"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Notificação Formal\n- Expedição com prazo e orientações\n- Ciência obrigatória do interino"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Recebimento Mensal das Contas\n- Protocolo eletrônico ou físico\n- Documentação até o 10º dia útil"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Análise Técnica\n- Coordenadoria de Análise de Contas\n- Conferência formal e material"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Parecer Jurídico (quando necessário)\n- Indícios de irregularidade ou falhas\n- Parecer opinativo para o Corregedor"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Ação Corretiva ou Homologação\n- Homologação se regular\n- Abertura de PAD ou recomendação corretiva"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Regularidade contábil e feedback contínuo"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
