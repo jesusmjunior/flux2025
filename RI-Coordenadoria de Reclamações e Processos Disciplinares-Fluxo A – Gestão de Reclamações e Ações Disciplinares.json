@@ -1,0 +1,28 @@
+{
+  "titulo": "RI-Coordenadoria de Reclamações e Processos Disciplinares-Fluxo A – Gestão de Reclamações e Ações Disciplinares",
+  "setor": "Coordenadoria de Reclamações e Processos Disciplinares",
+  "base_legal": "Art. 36 – Título II, Capítulo VI, Seção V do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Registro de reclamação ou representação recebida"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Triagem Inicial\n- Validação da autoria e objeto\n- Classificação da parte reclamada"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise e Encaminhamento\n- Se necessário, remessa ao Juiz de 1º grau ou Juiz Auxiliar"},
+    
+    {"id": "t3", "tipo": "fiscalizacao", "texto": "3. Controle de Tramitação\n- Cumprimento de prazos\n- Monitoramento de sindicâncias e PADs"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Expedições e Certidões\n- Correspondências externas\n- Verificação de registros disciplinares"},
+    
+    {"id": "t5", "tipo": "verificacao", "texto": "5. Manifestação Técnica\n- Parecer em designação de interinos(as)\n- Cruzamento com histórico disciplinar"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Registro atualizado e medidas aplicadas"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
