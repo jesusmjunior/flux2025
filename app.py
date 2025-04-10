@@ -178,7 +178,7 @@ try:
         <html lang=\"pt-br\">
         <head>
           <meta charset=\"UTF-8\">
-          <title>{dados['titulo']}</title>
+          <title>{os.path.basename(fluxo_selecionado)}</title>
           <style>
             body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; background: #fff; padding: 40px; color: #111; }
             header { text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 20px; }
@@ -203,7 +203,7 @@ try:
           <header>
             <img src=\"cogex.png\" alt=\"Logo COGEX\">
             <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
-            <h2>{dados['titulo']}</h2>
+            <h2>{os.path.basename(fluxo_selecionado)}</h2>
           </header>
           <div class=\"setor\"><strong>Arquivo:</strong> {os.path.basename(fluxo_selecionado)}</div>
           <div class=\"colunas\">
