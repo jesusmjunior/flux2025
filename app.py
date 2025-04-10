@@ -44,12 +44,18 @@ with col_texto:
 
 st.divider()
 
-# === Seleção de fluxo - MODIFICADO PARA ACEITAR QUALQUER ARQUIVO JSON ===
-arquivos_json = [f for f in os.listdir() if f.endswith(".json")]
-if arquivos_json:
-    fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_json)
+# === Campo de busca por nome de arquivo JSON ===
+st.markdown("🔍 **Pesquise pelo nome do fluxograma**")
+busca = st.text_input("Digite parte do nome do arquivo JSON:", "").lower()
+
+# Filtragem dos arquivos JSON com base na busca
+arquivos_json = sorted([f for f in os.listdir() if f.endswith(".json")])
+arquivos_filtrados = [f for f in arquivos_json if busca in f.lower()]
+
+if arquivos_filtrados:
+    fluxo_selecionado = st.selectbox("📁 Arquivos Encontrados:", arquivos_filtrados)
 else:
-    st.warning("Nenhum arquivo JSON encontrado no diretório atual.")
+    st.warning("Nenhum arquivo JSON corresponde à busca.")
     st.stop()
 
 # === Processamento do fluxo selecionado ===
@@ -57,24 +63,21 @@ try:
     with open(fluxo_selecionado, encoding='utf-8') as f:
         dados = json.load(f)
 
-    # Verificar se o arquivo JSON tem a estrutura esperada
     if not all(key in dados for key in ["titulo", "etapas", "conexoes"]):
         st.error("O arquivo JSON selecionado não contém a estrutura necessária para um fluxograma.")
         st.stop()
 
     st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
     setor_atual = dados.get("setor", setores_cogex[0])
-    
-    # Verificar se o setor está na lista e definir o índice adequadamente
+
     try:
         setor_index = setores_cogex.index(setor_atual)
     except ValueError:
         setor_index = 0
         st.warning(f"Setor '{setor_atual}' não encontrado na lista de setores COGEX. Selecionando o primeiro setor por padrão.")
-    
+
     setor_escolhido = st.selectbox("🏛️ Setor:", setores_cogex, index=setor_index)
 
-    # === Renderizar fluxo + legenda ===
     col_fluxo, col_dados = st.columns([2.5, 1], gap="medium")
 
     with col_fluxo:
@@ -95,7 +98,6 @@ try:
             fluxo.node(etapa["id"], etapa["texto"], **estilo)
 
         for conexao in dados["conexoes"]:
-            # Verificar se a conexão tem o formato esperado (origem, destino)
             if len(conexao) >= 2:
                 origem, destino = conexao[0], conexao[1]
                 fluxo.edge(origem, destino)
@@ -113,91 +115,52 @@ try:
         st.subheader("⚖️ Base Legal")
         st.markdown(dados.get("base_legal", "Não informada."))
 
-    # === Botão de exportação visual institucional A4 ===
     st.markdown("---")
     if st.button("📤 Exportar para HTML (modo A4 institucional com layout do app)"):
-        tipo_cor = {
-            "inicio": "inicio",
-            "tarefa": "tarefa",
-            "verificacao": "verificacao",
-            "publicacao": "publicacao",
-            "fiscalizacao": "fiscalizacao",
-            "fim": "fim"
-        }
-
+        tipo_cor = {key: key for key in estilo_map}
         html_export_visual = f"""
         <!DOCTYPE html>
-        <html lang="pt-br">
+        <html lang=\"pt-br\">
         <head>
-          <meta charset="UTF-8">
+          <meta charset=\"UTF-8\">
           <title>{dados['titulo']}</title>
           <style>
-            body {{
-                font-family: Arial, sans-serif;
-                max-width: 800px;
-                margin: auto;
-                background: #fff;
-                padding: 40px;
-                color: #111;
-            }}
-            header {{
-                text-align: center;
-                border-bottom: 1px solid #ccc;
-                margin-bottom: 20px;
-            }}
-            header img {{
-                width: 120px;
-            }}
+            body {{ font-family: Arial, sans-serif; max-width: 800px; margin: auto; background: #fff; padding: 40px; color: #111; }}
+            header {{ text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 20px; }}
+            header img {{ width: 120px; }}
             h1 {{ font-size: 20px; margin: 10px 0 0 0; }}
             h2 {{ font-size: 18px; color: #222; }}
-            .setor {{
-                background: #f3f3f3;
-                padding: 10px;
-                margin-bottom: 20px;
-                border-radius: 5px;
-            }}
+            .setor {{ background: #f3f3f3; padding: 10px; margin-bottom: 20px; border-radius: 5px; }}
             .colunas {{ display: flex; gap: 30px; }}
             .col1 {{ flex: 2; }}
             .col2 {{ flex: 1; font-size: 14px; }}
-            .box {{
-                padding: 10px;
-                border-radius: 5px;
-                margin-bottom: 15px;
-            }}
+            .box {{ padding: 10px; border-radius: 5px; margin-bottom: 15px; }}
             .inicio {{ background: lightgreen; }}
             .tarefa {{ background: lightblue; }}
             .verificacao {{ background: khaki; }}
             .publicacao {{ background: lightpink; }}
             .fiscalizacao {{ background: lightgrey; }}
             .fim {{ background: red; color: white; text-align: center; }}
-            footer {{
-                text-align: center;
-                font-size: 11px;
-                color: #888;
-                margin-top: 40px;
-                border-top: 1px solid #ccc;
-                padding-top: 10px;
-            }}
+            footer {{ text-align: center; font-size: 11px; color: #888; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }}
           </style>
         </head>
         <body>
           <header>
-            <img src="cogex.png" alt="Logo COGEX">
+            <img src=\"cogex.png\" alt=\"Logo COGEX\">
             <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
             <h2>{dados['titulo']}</h2>
           </header>
-          <div class="setor"><strong>Setor:</strong> {setor_escolhido}</div>
-          <div class="colunas">
-            <div class="col1">
+          <div class=\"setor\"><strong>Setor:</strong> {setor_escolhido}</div>
+          <div class=\"colunas\">
+            <div class=\"col1\">
         """
-
         for etapa in dados["etapas"]:
             classe = tipo_cor.get(etapa["tipo"], "tarefa")
             html_export_visual += f'<div class="box {classe}">{etapa["texto"].replace(chr(10), "<br>")}</div>\n'
 
         html_export_visual += f"""
             </div>
-            <div class="col2">
+            <div class=\"col2\">
               <h3>📘 Legenda</h3>
               ⬤ <strong>Início</strong> – cor `lightgreen`<br>
               ⬛ <strong>Tarefa</strong> – cor `lightblue`<br>
@@ -216,8 +179,6 @@ try:
         </body>
         </html>
         """
-
-        # Usar o nome do arquivo JSON para a exportação HTML
         nome_base = os.path.splitext(fluxo_selecionado)[0]
         nome_html = f"{nome_base}_visual_exportado.html"
         with open(nome_html, "w", encoding="utf-8") as f:
