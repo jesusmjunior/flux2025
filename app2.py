@@ -48,7 +48,7 @@ def configure_app_settings():
     )
     
     # Apply semantic styling with fuzzy classifiers
-    st.markdown("""
+     st.markdown("""
         <style>
         .main {
             max-width: 950px;
@@ -56,33 +56,34 @@ def configure_app_settings():
             padding-top: 1.5rem;
         }
         .stApp {
-            background-color: #f9f9fc;
+            background-color: #f5f9ff;
         }
         h1, h2, h3 {
-            color: #2c3e50;
+            color: #1a3e72;
             font-family: 'Arial', sans-serif;
         }
         .header-container {
-            background-color: #f0f2f6;
+            background-color: #e6f0ff;
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid #4a80d6;
         }
         .node-box {
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 1rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
-        .node-inicio { background-color: #d5f5e3; border-left: 5px solid #2ecc71; }
-        .node-tarefa { background-color: #d6eaf8; border-left: 5px solid #3498db; }
-        .node-verificacao { background-color: #fef9e7; border-left: 5px solid #f1c40f; }
-        .node-publicacao { background-color: #fdedec; border-left: 5px solid #e74c3c; }
-        .node-fiscalizacao { background-color: #f2f3f4; border-left: 5px solid #7f8c8d; }
-        .node-fim { background-color: #fadbd8; border-left: 5px solid #c0392b; }
+        .node-inicio { background-color: #e0f7fa; border-left: 5px solid #00acc1; }
+        .node-tarefa { background-color: #e3f2fd; border-left: 5px solid #1976d2; }
+        .node-verificacao { background-color: #fff8e1; border-left: 5px solid #ffa000; }
+        .node-publicacao { background-color: #fbe9e7; border-left: 5px solid #d84315; }
+        .node-fiscalizacao { background-color: #f5f5f5; border-left: 5px solid #616161; }
+        .node-fim { background-color: #ffebee; border-left: 5px solid #c62828; }
         .cogex-btn {
-            background-color: #2980b9;
+            background-color: #1565c0;
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -90,15 +91,21 @@ def configure_app_settings():
             font-weight: bold;
         }
         .stButton>button {
-            background-color: #3498db;
+            background-color: #1e88e5;
             color: white;
             font-weight: bold;
+            border: none;
+        }
+        .stButton>button:hover {
+            background-color: #0d47a1;
+            color: white;
         }
         .legal-box {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 1rem;
             border-radius: 5px;
-            border-left: 5px solid #34495e;
+            border-left: 5px solid #1a3e72;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .floating-robot {
             position: fixed;
@@ -107,30 +114,32 @@ def configure_app_settings():
             background: white;
             padding: 10px;
             border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
             z-index: 1000;
         }
         .speech-bubble {
             position: absolute;
             right: 80px;
             bottom: 40px;
-            background: #3498db;
+            background: #1e88e5;
             color: white;
             padding: 10px;
             border-radius: 10px;
             width: 150px;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .speech-bubble a {
             color: white;
             text-decoration: none;
+            font-weight: bold;
         }
         .placa-jj {
             text-align: center;
             font-size: 12px;
             font-weight: bold;
             margin-top: 5px;
-            color: #2c3e50;
+            color: #1a3e72;
         }
         .legend-item {
             display: flex;
@@ -142,33 +151,42 @@ def configure_app_settings():
             height: 16px;
             border-radius: 3px;
             margin-right: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
         }
         .connection-diagram {
             margin-top: 1rem;
             padding: 1rem;
-            background: #f7f7f7;
+            background: #edf4ff;
             border-radius: 8px;
+            border-left: 3px solid #1e88e5;
         }
         .fuzzy-score {
             margin-top: 1rem;
             padding: 0.5rem;
             font-size: 0.9rem;
             border-radius: 5px;
-            background: #edf2f7;
+            background: #e3f2fd;
+            border-left: 3px solid #1976d2;
         }
         .module-tag {
             display: inline-block;
             padding: 2px 6px;
-            background: #e2e8f0;
+            background: #bbdefb;
             border-radius: 4px;
             font-size: 0.8rem;
             margin-right: 5px;
-            color: #2d3748;
+            color: #0d47a1;
         }
         .etapa-id {
             font-weight: bold;
-            color: #2c3e50;
+            color: #1a3e72;
             font-size: 0.9rem;
+        }
+        .stSelectbox>div>div>select {
+            border: 1px solid #90caf9;
+        }
+        .stTextInput>div>div>input {
+            border: 1px solid #90caf9;
         }
         </style>
     """, unsafe_allow_html=True)
