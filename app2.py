@@ -82,7 +82,7 @@ def configure_app_settings():
         .node-fiscalizacao { background-color: #f2f3f4; border-left: 5px solid #7f8c8d; }
         .node-fim { background-color: #fadbd8; border-left: 5px solid #c0392b; }
         .cogex-btn {
-            background-color: #2980b9;
+            background-color: #000000;
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 5px;
