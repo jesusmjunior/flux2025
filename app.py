@@ -189,3 +189,12 @@ try:
 
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
+    # === Robô Flutuante Lateral ===
+st.markdown("""
+<div class="floating-robot">
+    <div class=\"speech-bubble\"><a href=\"https://www.tjma.jus.br/site/extrajudicial\" target=\"_blank\">Acesse COGEX</a></div>
+    <img src=\"https://cdn-icons-png.flaticon.com/512/4712/4712035.png\" width="60">
+    <div class="placa-jj">JJ I.A. COGEX</div>
+</div>
+""", unsafe_allow_html=True)
+
