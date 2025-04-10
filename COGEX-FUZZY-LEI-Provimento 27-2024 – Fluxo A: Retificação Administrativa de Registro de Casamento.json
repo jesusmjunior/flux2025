@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 27-2024 – Fluxo A: Retificação Administrativa de Registro de Casamento",
+  "setor": "Núcleo de Registro Civil",
+  "base_legal": "Provimento nº 27/2024 + Lei nº 6.515/1977 + Constituição Federal/88 + Código Civil. Trata da retificação administrativa dos registros de casamento nos casos sem pacto antenupcial, conforme legislação aplicável.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 27/2024 no DJE"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Interpretação Jurídica do Provimento\n- Identificação das hipóteses aplicáveis\n- Manual técnico de orientação"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Orientação aos Oficiais de Registro\n- Circular com modelos e fluxos padronizados\n- Comunicação via Portal e e-mail institucional"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Inclusão em Fiscalização Documental\n- Checklist aplicado em visitas e análise remota"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Monitoramento Estatístico\n- Dados semestrais sobre retificações\n- Dashboards e relatórios para decisão"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Prática administrativa consolidada e retroalimentada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
