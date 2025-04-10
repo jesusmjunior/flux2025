@@ -11,27 +11,27 @@
     {
       "id": "t1",
       "tipo": "tarefa",
-      "texto": "1. Iniciar Estudo Interno\n- Identificar lacunas\n- Receber relatórios\n- Levantar provimentos"
+      "texto": "1. Estudo Interno\n- Identificar lacunas\n- Analisar relatórios\n- Levantar normas"
     },
     {
       "id": "t2",
       "tipo": "tarefa",
-      "texto": "2. Redigir Minuta de Norma\n- Seção XIV\n- Prov. 16/22\n- Padrões COGEX"
+      "texto": "2. Redigir Minuta\n- Criar Seção XIV\n- Referenciar Prov. 16/22"
     },
     {
       "id": "t3",
       "tipo": "verificacao",
-      "texto": "3. Analisar Conformidade\n- CNJ\n- STJ/STF"
+      "texto": "3. Análise de Conformidade\n- CNJ\n- STJ/STF"
     },
     {
       "id": "t4",
       "tipo": "publicacao",
-      "texto": "4. Publicar Provimento\n- DJE\n- Notificar serventias"
+      "texto": "4. Publicação Oficial\n- DJE\n- Notificação às serventias"
     },
     {
       "id": "t5",
       "tipo": "fiscalizacao",
-      "texto": "5. Fiscalizar Execução\n- Verificar cumprimento\n- Medidas disciplinares"
+      "texto": "5. Fiscalização\n- Verificar cumprimento\n- Aplicar medidas"
     },
     {
       "id": "end",
