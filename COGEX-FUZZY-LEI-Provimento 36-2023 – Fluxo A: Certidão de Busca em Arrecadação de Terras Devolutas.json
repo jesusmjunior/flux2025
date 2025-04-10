@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 36-2023 – Fluxo A: Certidão de Busca em Arrecadação de Terras Devolutas",
+  "setor": "Núcleo de Regularização Fundiária",
+  "base_legal": "Provimento nº 36, de 20 de outubro de 2023 + Constituição Federal + Código de Normas da CGJ-MA + legislação fundiária estadual. Estabelece procedimentos para emissão de certidão de busca e registro em processos de arrecadação de terras devolutas.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 36-2023 + Requisição do Poder Público"},
+    
+    {"id": "t1", "tipo": "publicacao", "texto": "1. Comunicação aos Cartórios\n- Ofício com modelo e instruções\n- Envio via DJE e Portal do Extrajudicial"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Emissão da Certidão de Busca\n- Consulta de matrículas e transcrições\n- Elaboração conforme padrão normativo"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Verificação Técnica de Conformidade\n- Amostragem pela Coordenadoria de Inspeções\n- Emissão de parecer técnico"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Arquivamento e Integração Digital\n- Certidão digitalizada e integrada ao CNIR\n- Disponibilização eletrônica"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Certidões válidas e registradas com valor jurídico garantido"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
