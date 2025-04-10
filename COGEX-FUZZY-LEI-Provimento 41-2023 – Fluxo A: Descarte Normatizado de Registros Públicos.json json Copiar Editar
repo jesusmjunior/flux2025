@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 41-2023 – Fluxo A: Descarte Normatizado de Registros Públicos",
+  "setor": "Coordenadoria de Gestão Documental",
+  "base_legal": "Provimento nº 41, de 4 de dezembro de 2023 + Código de Normas da CGJ-MA – § 3º do art. 502. Altera a norma sobre o descarte de registros públicos, regulamentando critérios e prazos.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 41-2023 no DJE"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Interpretação Técnica\n- Identificação dos tipos documentais descartáveis\n- Consolidação normativa de prazos de guarda"},
+    
+    {"id": "t2", "tipo": "publicacao", "texto": "2. Emissão de Orientação Operacional\n- Manual de descarte + checklist obrigatório\n- Envio padronizado aos cartórios"},
+    
+    {"id": "t3", "tipo": "fiscalizacao", "texto": "3. Implementação e Fiscalização\n- Descarte com termo de responsabilidade\n- Inspeção de conformidade documental"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Registro e Arquivamento\n- Comprovação do descarte\n- Manutenção de registro por 5 anos"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Descarte normatizado e integrado às rotinas dos cartórios"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
