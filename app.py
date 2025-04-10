@@ -1,81 +1,35 @@
-import streamlit as st
-import json
-import os
-from graphviz import Digraph
-from PIL import Image
+from fpdf import FPDF
 
-st.set_page_config(page_title="Fluxo BPMN COGEX", layout="wide")
+# Gerar PDF institucional com layout A4 reduzido (70%)
+pdf = FPDF(format='A4')
+pdf.add_page()
 
-# === Cabeçalho ===
-col_logo, col_texto = st.columns([1, 9])
-with col_logo:
-    if os.path.exists("cogex.png"):
-        st.image(Image.open("cogex.png"), width=120)
-with col_texto:
-    st.markdown("### **Corregedoria do Foro Extrajudicial**")
-    st.markdown("##### Sistema de Modelagem de Processos - COGEX")
+# Títulos e cabeçalho institucional
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(0, 8, "Corregedoria Geral do Foro Extrajudicial", ln=True, align='C')
 
-st.markdown("---")
+pdf.set_font("Arial", 'B', 11)
+pdf.cell(0, 8, "Processo Endógeno – Atualização Normativa (Provimento nº 33/2024)", ln=True, align='C')
 
-# === Dropdown de seleção de fluxo ===
-arquivos_fluxo = [f for f in os.listdir() if f.startswith("fluxo") and f.endswith(".json")]
-fluxo_selecionado = st.selectbox("🔽 Selecione um fluxograma", arquivos_fluxo)
+pdf.set_font("Arial", '', 10)
+pdf.cell(0, 6, "CGJ/MA – Coordenação de Normas (COGEX)", ln=True, align='C')
 
-# === Carregar JSON selecionado ===
-with open(fluxo_selecionado, encoding='utf-8') as f:
-    dados = json.load(f)
+pdf.ln(8)
 
-# === Título e Setor ===
-st.subheader(f"📌 {dados.get('titulo', 'Título não encontrado')}")
-st.markdown(f"**🏛️ Setor:** {dados.get('setor', 'Setor não informado')}")
+# Imagem centralizada e reduzida para 70% do espaço horizontal
+page_width = 210  # A4 width in mm
+margin = 15
+img_width = (page_width - 2 * margin) * 0.7  # 70% of content width
 
-col1, col2 = st.columns([3, 1])
+pdf.image("/mnt/data/fluxograma_institucional.png", x=(page_width - img_width) / 2, w=img_width)
 
-# === Renderizador BPMN por código ===
-with col1:
-    fluxo = Digraph('Fluxograma', format='png')
-    fluxo.attr(rankdir='TB', size='8,10', nodesep='0.5')
+# Rodapé
+pdf.set_y(-20)
+pdf.set_font("Arial", 'I', 9)
+pdf.cell(0, 10, "Documento gerado automaticamente por AppPy-Cogex ©", 0, 0, 'C')
 
-    estilo_map = {
-        "inicio": {"shape": "circle", "style": "filled", "fillcolor": "lightgreen"},
-        "tarefa": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightblue"},
-        "verificacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "khaki"},
-        "publicacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightpink"},
-        "fiscalizacao": {"shape": "box", "style": "rounded,filled", "fillcolor": "lightgrey"},
-        "fim": {"shape": "doublecircle", "style": "filled", "fillcolor": "red"}
-    }
+# Exportar PDF
+output_pdf_a4 = "/mnt/data/fluxograma_institucional_A4_reduzido.pdf"
+pdf.output(output_pdf_a4)
 
-    for etapa in dados["etapas"]:
-        estilo = estilo_map.get(etapa["tipo"], {})
-        fluxo.node(etapa["id"], etapa["texto"], **estilo)
-
-    for origem, destino in dados["conexoes"]:
-        fluxo.edge(origem, destino)
-
-    st.graphviz_chart(fluxo)
-
-    # Exportação PNG (opcional)
-    try:
-        nome_img = fluxo_selecionado.replace(".json", "_fluxo")
-        caminho_img = fluxo.render(nome_img, cleanup=False)
-        with open(caminho_img, "rb") as f_img:
-            st.download_button(
-                label="📥 Baixar Fluxograma PNG",
-                data=f_img,
-                file_name=os.path.basename(caminho_img),
-                mime="image/png"
-            )
-    except Exception as e:
-        st.warning(f"Erro ao gerar PNG: {e}")
-
-# === Legenda + Base Legal ===
-with col2:
-    st.subheader("📘 Legenda")
-    for tipo, estilo in estilo_map.items():
-        cor = estilo['fillcolor']
-        simbolo = "⬤" if "circle" in estilo["shape"] else "⬛"
-        st.markdown(f"{simbolo} **{tipo.capitalize()}** – cor `{cor}`")
-
-    st.markdown("---")
-    st.subheader("⚖️ Base Legal")
-    st.markdown(dados.get("base_legal", "Não informada"))
+output_pdf_a4
