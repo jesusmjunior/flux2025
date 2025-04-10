@@ -30,19 +30,51 @@ st.markdown("""
         margin: auto;
         padding-top: 2rem;
     }
-    </style>
+    .floating-robot {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: floatbot 4s ease-in-out infinite;
+        z-index: 999;
+    }
+
+    @keyframes floatbot {
+        0%, 100% { transform: translateY(-50%) translateY(-20px); }
+        50% { transform: translateY(-50%) translateY(20px); }
+    }
+
+    .placa-jj {
+        background: #111;
+        color: #0ff;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 0 10px #0ff;
+        font-family: monospace;
+    }
+</style>
 """, unsafe_allow_html=True)
 
 # === Cabeçalho institucional ===
 col_logo, col_texto = st.columns([1, 4])
 with col_logo:
     if os.path.exists("cogex.png"):
-        st.image(Image.open("cogex.png"), width=200)
+        st.image(Image.open("cogex.png"), width=300)
 with col_texto:
     st.markdown("### **COGEX - CORREGEDORIA DO FORO EXTRAJUDICIAL DO ESTADO DO MARANHÃO**")
     st.markdown("##### Sistema de Modelagem de Processos")
 
 st.divider()
+
+# === Robô Flutuante Lateral ===
+st.markdown("""
+<div class="floating-robot">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712107.png" width="60">
+    <div class="placa-jj">JJ I.A. COGEX</div>
+</div>
+""", unsafe_allow_html=True)
 
 # === Pesquisa e seleção de fluxogramas ===
 st.markdown("### 📂 Selecione ou pesquise um fluxograma")
