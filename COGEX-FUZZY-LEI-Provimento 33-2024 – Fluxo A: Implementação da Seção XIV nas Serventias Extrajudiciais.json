@@ -1,0 +1,28 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 33-2024 – Fluxo A: Implementação da Seção XIV nas Serventias Extrajudiciais",
+  "setor": "Coordenadoria de Serventias Extrajudiciais",
+  "base_legal": "Provimento nº 33/2024 + LC nº 271/2024 + Código de Normas do Foro Extrajudicial",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 33/2024"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Notificação Interna\n- Diretoria do COGEX informa setores\n- Envio oficial via sistema interno"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Leitura Técnica e Desdobramento\n- Assessoria Jurídica analisa\n- Serventias Extrajudiciais elaboram diretrizes"},
+    
+    {"id": "t3", "tipo": "publicacao", "texto": "3. Comunicação Externa\n- Ofício-circular enviado às serventias\n- Portal e malote digital"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Inclusão nos Roteiros de Inspeção\n- Coordenadoria de Inspeções atualiza checklists"},
+    
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Fiscalização Ordinária\n- Verificação da aplicação da Seção XIV\n- Registro de conformidade"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – 100% das serventias alinhadas ou sob revisão"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
