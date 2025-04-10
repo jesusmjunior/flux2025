@@ -1,55 +1,40 @@
 import streamlit as st
 import json
-import os
 from PIL import Image
+import os
 
-# === Configuração da página ===
-st.set_page_config(page_title="AppPy - Fluxograma COGEX", layout="wide")
+st.set_page_config(page_title="Fluxograma COGEX BPMN", layout="wide")
 
-# === Logo COGEX ===
+# Cabeçalho
+st.markdown("## Corregedoria do Foro Extrajudicial")
+st.markdown("##### Sistema de Modelagem de Processos - COGEX")
 if os.path.exists("cogex.png"):
-    st.image(Image.open("cogex.png"), width=40)
-else:
-    st.warning("⚠️ Arquivo cogex.png não encontrado.")
+    st.image("cogex.png", width=40)
 
-# === Título principal ===
-st.markdown("### **Corregedoria do Foro Extrajudicial**")
-st.markdown("##### Sistema de Visualização de Fluxogramas Jurídicos")
 st.markdown("---")
 
-# === Coleta arquivos de fluxo (.json) no diretório raiz ===
-fluxo_opcoes = [f for f in os.listdir() if f.endswith(".json")]
+# Carregar dados do fluxo2.json
+with open("fluxo2.json", encoding='utf-8') as f:
+    dados = json.load(f)
 
-fluxo_escolhido = st.selectbox("🔽 Selecione o Fluxograma", options=fluxo_opcoes, index=0)
-
-# === Carrega os dados JSON selecionados ===
-def carregar_fluxo(nome_arquivo):
-    with open(nome_arquivo, encoding='utf-8') as f:
-        return json.load(f)
-
-dados_fluxo = carregar_fluxo(fluxo_escolhido)
-
-# === Layout do conteúdo ===
+# Layout triplo
 col_legenda, col_fluxo, col_base = st.columns([2, 6, 2])
 
-# === Legenda ===
+# Legenda
 with col_legenda:
     st.subheader("📘 Legenda")
-    for item in dados_fluxo.get("legenda", []):
+    for item in dados.get("legenda", []):
         st.markdown(f"- {item}")
 
-# === Fluxograma ===
+# Imagem do fluxograma
 with col_fluxo:
-    st.subheader(f"📌 {dados_fluxo.get('titulo', 'Sem Título')}")
-    st.markdown(f"##### {dados_fluxo.get('subtitulo', '')}")
-    st.markdown("---")
-    st.markdown("### 🧭 Fluxograma")
-    st.markdown(dados_fluxo.get("desenho", "Fluxo não disponível."), unsafe_allow_html=True)
+    st.subheader(f"📌 {dados.get('titulo', '')}")
+    st.markdown(f"##### {dados.get('subtitulo', '')}")
+    st.image("fluxograma_cogex.png", use_column_width=True)
 
-# === Base Legal ===
+# Base legal
 with col_base:
     st.subheader("⚖️ Base Legal")
-    st.markdown(dados_fluxo.get("base_legal", "Não informada."))
-    st.markdown("---")
-    st.markdown("📁 Arquivo carregado:")
-    st.code(fluxo_escolhido)
+    st.markdown(dados.get("base_legal", ""))
+    st.markdown("✅ Provimento nº 33/2024 – CGJ/MA")
+
