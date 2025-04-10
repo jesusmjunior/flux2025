@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 32-2022 – Fluxo A: Execução do Projeto Casamentos Comunitários",
+  "setor": "Coordenadoria de Projetos Institucionais",
+  "base_legal": "Provimento nº 32, de 7 de julho de 2022 + Constituição Federal + Código Civil + Lei nº 6.015/1973 + Resolução CNJ nº 35/2007. Regulamenta o procedimento para realização dos Casamentos Comunitários promovidos pelo Poder Judiciário em parceria com serventias extrajudiciais.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Lançamento do cronograma anual de casamentos"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Planejamento do Evento\n- Definição de datas e locais\n- Parcerias institucionais\n- Logística e orçamento"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Inscrição dos Casais\n- Divulgação pública\n- Inscrição com documentação simplificada"
+    },
+    {
+      "id": "t3",
+      "tipo": "verificacao",
+      "texto": "3. Habilitação e Análise\n- Checagem de impedimentos legais\n- Emissão de edital\n- Lavratura do assento"
+    },
+    {
+      "id": "t4",
+      "tipo": "tarefa",
+      "texto": "4. Celebração dos Casamentos\n- Cerimônia pública coletiva\n- Emissão das certidões"
+    },
+    {
+      "id": "t5",
+      "tipo": "publicacao",
+      "texto": "5. Divulgação e Impacto Social\n- Comunicação institucional\n- Relatórios de cidadania"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Evento finalizado e ciclo registrado"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
