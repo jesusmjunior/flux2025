@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 20-2021 – Fluxo A: Casamentos Comunitários na Modalidade Virtual",
+  "setor": "Coordenadoria de Projetos Especiais",
+  "base_legal": "Provimento nº 20, de 2021 + Código Civil + Lei nº 6.015/1973 + Resolução CNJ nº 313/2020 + Provimentos da CGJ-MA. Regulamenta a realização de casamentos comunitários virtuais, adaptando os procedimentos à realidade da pandemia e garantindo o acesso ao casamento civil de forma remota e gratuita. Adequar os cartórios para atender à demanda de casamentos virtuais com segurança jurídica, respeitando os protocolos tecnológicos e de publicidade.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 20/2021"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Planejamento do Evento Virtual\n- Plataforma definida\n- Estrutura e datas validadas"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Inscrição e Análise dos Documentos\n- Critérios de hipossuficiência\n- Lista final de casais"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Audiência Virtual e Celebração\n- Videoconferência oficial\n- Registro em ata digital"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Lavratura e Entrega da Certidão\n- Registro no Livro E\n- Envio digital e físico"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Monitoramento e Avaliação\n- Inclusão digital\n- Satisfação dos casais"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Casamento virtual realizado com eficácia"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
