@@ -1,0 +1,28 @@
+{
+  "titulo": "RI-Ato Administrativo – Fluxo A – Produção de Atos e Documentos Institucionais",
+  "setor": "Diretoria do COGEX",
+  "base_legal": "Art. 12 e 13 – Título II, Capítulo I do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Solicitação ou necessidade institucional"},
+    
+    {"id": "t1", "tipo": "verificacao", "texto": "1. Verificar natureza do ato\n- Comunicação externa\n- Confirmação de fatos\n- Informação declaratória"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Produzir Documento\n- Ofício\n- Certidão\n- Declaração\n- Atestado\n- Memorando"},
+    
+    {"id": "t3", "tipo": "publicacao", "texto": "3. Registro Administrativo\n- Autuar nos sistemas\n- Atribuir número e data"},
+    
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Validação hierárquica\n- Corregedor ou Juízes Auxiliares"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Execução ordinatória\n- Juntada\n- Expedição\n- Vista obrigatória"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Ato registrado e cumprido"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
