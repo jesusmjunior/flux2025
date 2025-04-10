@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 49-2022 – Fluxo A: Assento de Nascimento de Indígenas",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 49, de 3 de novembro de 2022 + Constituição Federal + Estatuto do Índio + Lei nº 6.015/1973 + Convenção 169 da OIT. Regulamenta o registro civil de nascimento de indígenas, com respeito à diversidade étnica e sociocultural, assegurando direitos constitucionais.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 49/2022 + demanda de registro de nascimento indígena"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Recebimento do Pedido de Registro\n- Declaração da comunidade\n- Dados pessoais e culturais\n- Testemunhas"
+    },
+    {
+      "id": "t2",
+      "tipo": "tarefa",
+      "texto": "2. Lavratura do Assento\n- Inclusão de etnia, aldeia e língua materna\n- Registro com respeito à identidade"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Isenção de Custas\n- Aplicação da gratuidade conforme a Constituição e pactos internacionais"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Comunicação Institucional\n- Envio à Funai, MP, secretarias indígenas"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Monitoramento e Capacitação\n- Treinamentos periódicos\n- Fiscalização temática"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Reconhecimento e cidadania com garantia de identidade cultural"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
