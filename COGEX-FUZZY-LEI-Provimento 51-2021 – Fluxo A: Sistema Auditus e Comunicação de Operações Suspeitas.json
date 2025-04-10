@@ -1,0 +1,50 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 51-2021 – Fluxo A: Sistema Auditus e Comunicação de Operações Suspeitas",
+  "setor": "Coordenadoria de Fiscalização",
+  "base_legal": "Provimento nº 51, de 2021 + Provimento CNJ nº 88/2019 + Lei nº 6.015/1973 + Lei nº 9.613/1998. Regulamenta a inserção de informações no sistema Auditus sobre operações suspeitas e movimentações financeiras relevantes, conforme medidas de prevenção à lavagem de dinheiro e financiamento ao terrorismo.",
+  "etapas": [
+    {
+      "id": "start",
+      "tipo": "inicio",
+      "texto": "Início – Publicação do Provimento nº 51/2021"
+    },
+    {
+      "id": "t1",
+      "tipo": "tarefa",
+      "texto": "1. Orientação sobre o Sistema e Padrões CNJ\n- Guia prático e vídeos\n- Capacitação de delegatários"
+    },
+    {
+      "id": "t2",
+      "tipo": "verificacao",
+      "texto": "2. Detecção de Operações Potencialmente Suspeitas\n- Ato de grande valor ou frequência\n- Indícios de irregularidade"
+    },
+    {
+      "id": "t3",
+      "tipo": "tarefa",
+      "texto": "3. Inserção das Informações no Sistema Auditus\n- Preenchimento completo\n- Justificativa e partes envolvidas"
+    },
+    {
+      "id": "t4",
+      "tipo": "publicacao",
+      "texto": "4. Comunicação ao COAF via CNJ\n- Encaminhamento automático\n- Protocolo registrado"
+    },
+    {
+      "id": "t5",
+      "tipo": "fiscalizacao",
+      "texto": "5. Fiscalização e Responsabilização\n- Conferência da obrigação legal\n- Abertura de PAD, se necessário"
+    },
+    {
+      "id": "end",
+      "tipo": "fim",
+      "texto": "Encerramento – Boas práticas de prevenção consolidadas"
+    }
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
