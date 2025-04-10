@@ -1,4 +1,3 @@
-
 import streamlit as st
 import json
 import os
@@ -181,3 +180,73 @@ try:
 
 except Exception as e:
     st.error(f"❌ Erro ao carregar ou renderizar o fluxo: {str(e)}")
+
+# === Exportação Visual ===
+
+import streamlit.components.v1 as components
+
+# === Botão para exportar visualização atual em A4 ===
+with st.expander("🖨️ Exportar visualização como página A4"):
+    html_export = f'''
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <title>Exportação Visual</title>
+      <style>
+        body {{
+          font-family: Arial, sans-serif;
+          max-width: 800px;
+          margin: auto;
+          padding: 40px;
+        }}
+        .header {{
+          text-align: center;
+        }}
+        .header img {{
+          height: 80px;
+        }}
+        .content {{
+          margin-top: 20px;
+        }}
+        .print-btn {{
+          display: block;
+          margin: 20px auto;
+          padding: 10px 20px;
+          background-color: #333;
+          color: white;
+          border: none;
+          cursor: pointer;
+          font-size: 16px;
+        }}
+        @media print {{
+          .print-btn {{
+            display: none;
+          }}
+        }}
+      </style>
+    </head>
+    <body>
+      <div class="header">
+        <img src="cogex.png" alt="Logo COGEX">
+        <h1>CORREGEDORIA DO FORO EXTRAJUDICIAL</h1>
+        <h2>{dados.get("titulo", "")}</h2>
+        <p><strong>Setor:</strong> {setor_escolhido}</p>
+      </div>
+      <div class="content">
+        <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+        <p><strong>📘 Legenda:</strong><br>
+        ⬤ Início – lightgreen<br>
+        ⬛ Tarefa – lightblue<br>
+        ⬛ Verificação – khaki<br>
+        ⬛ Publicação – lightpink<br>
+        ⬛ Fiscalização – lightgrey<br>
+        ⬤ Fim – red</p>
+        <p><strong>⚖️ Base Legal:</strong><br>{dados.get("base_legal", "")}</p>
+      </div>
+    </body>
+    </html>
+    '''
+
+    st.download_button("📥 Baixar HTML da visualização A4", data=html_export,
+                       file_name="visualizacao_fluxo_A4.html", mime="text/html")
