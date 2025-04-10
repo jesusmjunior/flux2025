@@ -1,0 +1,31 @@
+{
+  "titulo": "RI-Gestão Estratégica – Fluxo A – Planejamento, Projetos e Inovação Institucional",
+  "setor": "Gabinete dos Juízes Corregedores",
+  "base_legal": "Art. 23 – Título II, Capítulo IV do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Designação do(a) Juiz(íza) Estratégico(a)"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Plano de Gestão\n- Alinhar ao TJMA\n- Apresentar metas e projetos"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Diagnóstico Institucional\n- Acompanhar visitas técnicas\n- Sugerir melhorias nas serventias"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Acompanhamento de Sistemas\n- Avaliar uso de ferramentas digitais\n- Sugerir aperfeiçoamentos"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Monitoramento de Metas\n- CNJ / Corregedoria Nacional\n- Resultados e indicadores"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Execução Estratégica\n- Gerenciamento de projetos\n- Otimização de processos"},
+    
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Governança e Relatórios\n- Dados estatísticos\n- Proposição normativa contínua"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Ciclo de gestão estratégico consolidado"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
