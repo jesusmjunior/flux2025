@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 20-2024 – Fluxo A: Implantação da AEDO nas Serventias Extrajudiciais",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 20/2024 + Constituição Federal + Lei nº 9.434/1997 + Provimento CNJ nº 154/2023",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 20/2024 e diretriz nacional do CNJ"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Diagnóstico de Capacidade Técnica\n- Formulário digital + auditoria documental\n- Classificação das serventias aptas"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Elaboração do POP – AEDO\n- Procedimentos técnicos e legais\n- Documento padronizado com requisitos CNJ"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Capacitação Técnica\n- Webinário + apostilas\n- Oficiais e prepostos preparados"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Monitoramento Trimestral\n- Integração com SIRC e CNJ\n- Relatórios enviados pela COGEX"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – AEDO implementada nas serventias com indicadores ativos"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
