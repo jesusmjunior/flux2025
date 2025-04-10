@@ -1,0 +1,25 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 42-2023 – Fluxo A: Atualização da Escrituração dos Livros do Tabelionato de Notas",
+  "setor": "Coordenadoria de Normatização",
+  "base_legal": "Provimento nº 42, de 4 de dezembro de 2023 + Código de Normas da CGJ-MA – Artigo 638. Altera o artigo referente aos livros do tabelionato de notas, promovendo atualização procedimental.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 42-2023 no DJE"},
+    
+    {"id": "t1", "tipo": "publicacao", "texto": "1. Divulgação Oficial\n- Circular detalhando nova escrituração\n- Canal: Portal do Extrajudicial + DJE"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Adequação dos Sistemas\n- Compatibilização de software e formulários\n- Atualização técnica e manual"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Capacitação das Serventias\n- Curso EAD/presencial\n- Oficiais e prepostos habilitados"},
+    
+    {"id": "t4", "tipo": "fiscalizacao", "texto": "4. Fiscalização Pontual e Amostral\n- Checklist atualizado com base no art. 638\n- Relatórios e diligências"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Uniformização estadual da escrituração notarial"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
