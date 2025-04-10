@@ -1,0 +1,7 @@
+{
+  "titulo": "Procedimento de Averbação de Registro",
+  "subtitulo": "Fluxo de Procedimentos Internos",
+  "base_legal": "Art. 1.234 do Código Civil, Resolução CNJ 121/2010",
+  "legenda": ["🔷 Início", "⬛ Processo", "🔴 Decisão", "⬅️ Volta", "➡️ Avanço"],
+  "desenho": "🔷 ➡️ ⬛ Registrar pedido ➡️ 🔴 Verificar pendências ➡️ ⬛ Protocolar ➡️ 🔷 Finalizar"
+}
