@@ -1,0 +1,31 @@
+{
+  "titulo": "RI-Gabinete do Corregedor – Fluxo C – Atuação dos Juízes Auxiliares da Corregedoria",
+  "setor": "Gabinete dos Juízes Corregedores",
+  "base_legal": "Art. 20 ao 22 – Título II, Capítulo III do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Designação do(a) Juiz(a) Auxiliar pelo Corregedor"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Inspeções e Visitas Técnicas\n- Participar e relatar fiscalizações\n- Propor providências"},
+    
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Atos Administrativos e Disciplinares\n- Pareceres e despachos\n- Apoio a PADs e sindicâncias"},
+    
+    {"id": "t3", "tipo": "verificacao", "texto": "3. Função Normativa\n- Sugerir e revisar atos normativos\n- Propor mudanças procedimentais"},
+    
+    {"id": "t4", "tipo": "tarefa", "texto": "4. Supervisão Funcional\n- Coordenar instalação de serventias\n- Acompanhar funcionamento das coordenadorias"},
+    
+    {"id": "t5", "tipo": "tarefa", "texto": "5. Representação Institucional\n- Substituir o Corregedor em eventos\n- Atuar conforme delegação"},
+    
+    {"id": "t6", "tipo": "fiscalizacao", "texto": "6. Gestão Estratégica e Tecnológica\n- Sugerir mudanças nos sistemas\n- Articular com a Assessoria Jurídica"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Encargo cumprido com parecer ou relatório"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "t6"],
+    ["t6", "end"]
+  ]
+}
