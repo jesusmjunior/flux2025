@@ -1,0 +1,20 @@
+{
+  "titulo": "Fluxo A – Gestão Documental e Protocolo",
+  "setor": "Coordenadoria Administrativa",
+  "base_legal": "Art. 29 e 30 – Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Organizar Arquivo\n- Classificação\n- Expedição\n- Arquivamento"},
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Verificar Integridade\n- Reparar documentos\n- Manter conservação"},
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Protocolo\n- Registrar e distribuir\n- Conferir e encaminhar"},
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Expedição\n- Correios\n- E-mail institucional"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
