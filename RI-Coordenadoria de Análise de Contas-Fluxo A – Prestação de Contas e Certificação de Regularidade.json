@@ -1,0 +1,25 @@
+{
+  "titulo": "RI-Coordenadoria de Análise de Contas-Fluxo A – Prestação de Contas e Certificação de Regularidade",
+  "setor": "Coordenadoria de Análise de Contas",
+  "base_legal": "Art. 34 e 35 – Título II, Capítulo VI, Seção IV do Regimento Interno da COGEX",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Recebimento das prestações de contas"},
+    
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Triagem da Prestação\n- Conferência inicial\n- Organização da documentação"},
+    
+    {"id": "t2", "tipo": "verificacao", "texto": "2. Análise Técnica\n- Inconsistências contábeis\n- Notificação com prazo de 5 dias"},
+    
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Elaboração de Parecer\n- Fundamentar decisões da Corregedoria"},
+    
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Emissão de Certidão\n- Regularidade de envio\n- Atualização de arquivos e SAC"},
+    
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Prestação processada e certificada"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "end"]
+  ]
+}
