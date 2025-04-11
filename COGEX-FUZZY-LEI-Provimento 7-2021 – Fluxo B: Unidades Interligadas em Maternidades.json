@@ -1,0 +1,22 @@
+{
+  "titulo": "COGEX-FUZZY-LEI-Provimento 7-2021 – Fluxo B: Unidades Interligadas em Maternidades",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 7, de 2021 + Lei nº 9.534/1997 + Lei nº 6.015/1973 + Provimento CNJ nº 13/2010. Regulamenta a instalação de Unidades Interligadas de Registro Civil em maternidades e hospitais, facilitando o registro de nascimento diretamente nos locais de parto. Implementar e manter unidades interligadas nas maternidades com maior número de partos, assegurando registro imediato, gratuito e eficiente.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 7/2021"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Celebração de convênio com unidades de saúde\n- Hospitais com alta demanda\n- Termo de cooperação formalizado"},
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Instalação da unidade interligada\n- Espaço físico e equipamentos\n- Conexão ao SIRC ativada"},
+    {"id": "t3", "tipo": "tarefa", "texto": "3. Capacitação da equipe\n- Cartilha orientadora\n- Treinamento hospitalar e cartorial"},
+    {"id": "t4", "tipo": "publicacao", "texto": "4. Registro e emissão da certidão\n- Coleta de dados\n- Certidão entregue à mãe no hospital"},
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Monitoramento e avaliação\n- Taxas de registro\n- Expansão ou ajuste do modelo"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Redução do sub-registro e garantia à identidade civil"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
