@@ -1,0 +1,22 @@
+{
+  "titulo": "Semana Estadual de Mobilização – Combate ao Sub-registro",
+  "setor": "Coordenadoria de Registro Civil",
+  "base_legal": "Provimento nº 62/2020 + Constituição Federal + Lei nº 9.534/1997 + Lei nº 6.015/1973 + Provimento CNJ nº 13/2010. Institui a Semana de Mobilização Estadual para o Combate ao Sub-registro Civil de Nascimento, com ações integradas entre cartórios, poder público e sociedade civil para ampliar o acesso ao registro civil. As serventias devem realizar ações anuais de mobilização, mutirões de registro civil e campanhas de conscientização, com relatórios e metas pactuadas.",
+  "etapas": [
+    {"id": "start", "tipo": "inicio", "texto": "Início – Publicação do Provimento nº 62/2020"},
+    {"id": "t1", "tipo": "tarefa", "texto": "1. Planejamento da Semana\n- Locais prioritários\n- Parcerias estratégicas\n- Materiais de divulgação"},
+    {"id": "t2", "tipo": "tarefa", "texto": "2. Mutirões e Ações Locais\n- Emissão de certidões\n- Atendimento em campo\n- Documentação básica"},
+    {"id": "t3", "tipo": "publicacao", "texto": "3. Mobilização e Mídia\n- Campanhas em rádio, TV, redes sociais"},
+    {"id": "t4", "tipo": "verificacao", "texto": "4. Compilação de Resultados\n- Relatórios\n- Impacto regional\n- Boas práticas"},
+    {"id": "t5", "tipo": "fiscalizacao", "texto": "5. Premiação e Divulgação\n- Destaques regionais\n- Cerimônia institucional"},
+    {"id": "end", "tipo": "fim", "texto": "Encerramento – Balanço final e planejamento contínuo"}
+  ],
+  "conexoes": [
+    ["start", "t1"],
+    ["t1", "t2"],
+    ["t2", "t3"],
+    ["t3", "t4"],
+    ["t4", "t5"],
+    ["t5", "end"]
+  ]
+}
